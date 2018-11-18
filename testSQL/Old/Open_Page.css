@@ -1,0 +1,61 @@
+body
+{
+	background:url("http://www.free-largeimages.com/wp-	content/uploads/2014/11/Canada_flag-5.png") no-repeat 	center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;	
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+div
+{
+text-align: center; /* center checkbox horizontally */
+    vertical-align: middle; /* center checkbox vertically */
+	 padding: 550px 0;
+
+}
+
+.button 
+{
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #f4511e;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.button span 
+{
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.button span:after 
+{
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.button:hover span 
+{
+	padding-right: 25px;
+}
+
+.button:hover span:after 
+{
+	opacity: 1;
+	right: 0;
+}
