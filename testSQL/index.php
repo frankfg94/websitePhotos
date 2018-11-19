@@ -70,10 +70,10 @@ $result = $conn->query($request);
 					<div>
 						<h3>Contact Information</h3>
 						<ul class="ul-website-plan">
-							<button><i class="fa fa-facebook"></i></button>
-							<button><i class="fa fa-twitter"></i></button>
-							<button><i class="fa fa-envelope"></i></button>
-							<button><i class="fa fa-location-arrow"></i></button>
+                        <li><button><i class="fa fa-facebook"></i></button></li>
+                        <li><button><i class="fa fa-twitter"></i></button></li>
+                        <li><button><i class="fa fa-envelope"></i></button></li>
+                        <li><button><i class="fa fa-location-arrow"></i></button></li>
 						</ul>
 					</div>
 				</div>
