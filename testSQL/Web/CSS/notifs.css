@@ -1,0 +1,26 @@
+/* Confirmation Message */
+.msg{
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #3c763d;
+    width: 50%;
+    text-align: center;
+}
+
+.msgErr{
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: #c91e00;
+    background: #ff9c9c;
+    border: 1px solid #c91e00;
+    width: 50%;
+    text-align: center;
+}
+
+.row-label{
+    display: block;
+}

@@ -1,8 +1,10 @@
+
+
+
 <?php
 include_once('../PHP/connectToMySql.php');
 $request="select * from Post";
 $result = $conn->query($request);
-
 ?>
 
 
