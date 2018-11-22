@@ -48,6 +48,13 @@
 
     }
 
+    function DownloadImg()
+    {
+        alert("Dowloading the picture...");
+        var myImgSrc = document.getElementById("smallImage").getElementsByTagName("img")[0].src;
+
+    }
+
     function ShowDeletablePostList()
     {
         document.getElementById('iframeDelPosts').style.display='block';
@@ -104,7 +111,7 @@
         <div>
             <iframe id="iframeDelPosts" src="../PHP/postList.php"></iframe>
         </div>
-        <form>
+        <form action="../PHP/CRUD/">
         <div id="createCard" class="card">        
             <div class="card-header">
                 <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
@@ -128,6 +135,9 @@
                 </div>  
                 <div class="comments">
                     <p><span class="username">Comment Area</span>Here will be added your future comments</p>
+                </div>
+                <div>
+                    <button onclick="DownloadImg()" class="dlBtn">Download image</button>
                 </div>
             </div>
 </form>
