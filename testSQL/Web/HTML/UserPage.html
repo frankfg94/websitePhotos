@@ -22,14 +22,20 @@
     {
               // FileReader support
      var files =  document.getElementById('file-input').files;
-    if (FileReader && files && files.length) {
-        var fr = new FileReader();
-        fr.onload = function () {
-            document.getElementById('img').src = fr.result;
+        if (FileReader && files && files.length)
+        {
+            var fr = new FileReader();
+            fr.onload = function ()
+            {
+                document.getElementById('img').src = fr.result;
+            }
+            fr.readAsDataURL(files[0]);
         }
-        fr.readAsDataURL(files[0]);
     }
 
+    function DownloadImg()
+    {
+        alert("Dowloading the picture...");
     }
 
     function ShowDeletablePostList()
@@ -90,16 +96,19 @@
                     <div id="date" class="date"></div>
                 </div>
                 <div class="card-content">
-                        <input id="file-input" onchange="LoadImg()" type="file" name="name" accept="image/*" style="display: none;" />
+                    <input id="file-input" onchange="LoadImg()" type="file" name="name" accept="image/*" style="display: none;" />
                     <img alt="" id="img" draggable="false"  ondragstart="return false"   onclick="SelectImage()" src="http://www.kensap.org/wp-content/uploads/empty-photo.jpg">
                     <div class="imageDescrText">Change Image</div>
                 </div>
                 <div class="card-footer">
                     <div class="description">
-                    <input type="text" placeholder="Enter the description of the image">
+                        <input type="text" placeholder="Enter the description of the image">
                     </div>  
                     <div class="comments">
                         <p><span class="username">Comment Area</span>Here will be added your future comments</p>
+                    </div>
+                    <div>
+                        <button onclick="DownloadImg()" class="dlBtn">Download image</button>
                     </div>
                 </div>
             </div>
