@@ -326,6 +326,8 @@ border-top: 1px solid #ccc;
 border-radius:1px; 
 }
 
+
+
 .footerLeft{
   width: 50%;
   display: inline-block;
@@ -347,6 +349,10 @@ border-radius:1px;
   box-sizing: border-box;
   z-index: 20;
   border: none;
+}
+
+.footerRight li{
+  display: inline;
 }
 
 .mainDiv h3{
@@ -379,10 +385,6 @@ font-weight: bold;
   height: 30px;
 }
 
-ul
-{
-  list-style-type: none;
-}
 
 .form h1
 {
@@ -450,4 +452,15 @@ width: 250px;
   display: inline-block;
   margin-top: 500px;
   width: 100%;
+}
+
+ul
+{
+  display: block;
+  list-style-type: none;
+}
+
+
+{
+  list-style-type: none;
 }

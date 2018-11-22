@@ -14,10 +14,10 @@ $result = $conn->query($request);
 <body >
    <header>
             <a href="index.php">    <i class="fa fa-home" aria-hidden="true"></i><h3>Home</h3></a>
-            <a href="Web/HTML/search.html"> <i class="fa fa-search" aria-hidden="true"></i><h3>Search</h3></a>
-            <a href="Web/HTML/UserPage.html"><i class="fa fa-user-o" aria-hidden="true"></i><h3>Profile</h3></a>
-            <a href="Web/HTML/goodPlans.html"> <i class="fa fa-bomb" aria-hidden="true"></i><h3>Good Plans</h3></a>
-            <a href="Web/HTML/Contact.html"> <i class="fa fa-envelope"  aria-hidden="true"> </i><h3>Contact</h3></a>
+            <a href="Web/HTML/search.php"> <i class="fa fa-search" aria-hidden="true"></i><h3>Search</h3></a>
+            <a href="Web/HTML/UserPage.php"><i class="fa fa-user-o" aria-hidden="true"></i><h3>Profile</h3></a>
+            <a href="Web/HTML/goodPlans.php"> <i class="fa fa-bomb" aria-hidden="true"></i><h3>Good Plans</h3></a>
+            <a href="Web/HTML/Contact.php"> <i class="fa fa-envelope"  aria-hidden="true"> </i><h3>Contact</h3></a>
     </header>
     <section class="container">
         <h1 id="mainTitle">Pictures in our database</h1>
@@ -60,10 +60,10 @@ $result = $conn->query($request);
 					<h3>Website Plan</h3>
 					<ul>
                     <li><a href="index.php">Home</a></li>
-                        <li><a href="Web/HTML/search.html">Search</a></li>
-                        <li><a href="Web/HTML/UserPage.html">Profile</a></li>
-                        <li> <a href="Web/HTML/goodPlans.html">Good Plans</a></li>
-                        <li> <a href="Web/HTML/Contact.html">Contact</a></li>
+                        <li><a href="Web/HTML/search.php">Search</a></li>
+                        <li><a href="Web/HTML/UserPage.php">Profile</a></li>
+                        <li> <a href="Web/HTML/goodPlans.php">Good Plans</a></li>
+                        <li> <a href="Web/HTML/Contact.php">Contact</a></li>
 					</ul>
 				</div>
 				<div class="topnav footerRight">

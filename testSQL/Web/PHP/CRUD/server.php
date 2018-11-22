@@ -48,6 +48,7 @@ if(isset($_POST['save']))
         header('location: index.php');
         // Display notification
         $_SESSION['msg'] ="Post created";
+        
     }
 
 }
