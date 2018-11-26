@@ -4,15 +4,16 @@
 <!--This is a test for git-->
 <html lang ="en">
     <head>
-		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<!-- The link to the css file -->
 		<!-- The title of the page -->
 		<title>Contact</title>
+		<link rel="stylesheet" href="../CSS/contactResponsive.css">
 		<link rel="stylesheet" href="../CSS/main.css">
 		<link rel="stylesheet" href="../CSS/notifs.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-
     </head>
 	
 	<body>

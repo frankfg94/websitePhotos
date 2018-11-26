@@ -88,6 +88,25 @@
     float: right;
  }
 
+ @media only screen and (max-width: 600px) {
+  #left-carousel{
+    padding-top: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    width: 100%;
+ }
+ #right-mosaic{
+  width: 100%;
+  
+}
+#slider {
+  margin-top: 5%;
+
+}
+}
+
+
+
  /* Fade In and Fade Out Animations */
 
 @keyframes fadein {

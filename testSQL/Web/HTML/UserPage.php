@@ -11,6 +11,9 @@
         <link rel="stylesheet" href="../CSS/main.css">
         <link rel="stylesheet" href="../CSS/notifs.css">
         <link rel="stylesheet" href="../CSS/loginStyle.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
 <script>
@@ -93,34 +96,50 @@
         ?>
     </div>
     <?php endif ?>
-    <div class="leftProfileMenu animated fadeInLeft faster" >
-        <div class="butDiv-container">
+    <h1 class="profile-intro-title">Welcome to your profile</h1>
+    <div id="accordionExample" class="accordion leftProfileMenu animated fadeInLeft faster" >
+        <div class="butDiv-container" data-parent="#accordionExample"> 
             <div class="butDiv">
+                <a class="btn" data-toggle="collapse" href="#collapse-account" role="button" aria-expanded="false" aria-controls="collapseExample">
                 <h1>Account Name</h1>
+                    </a>
+            <div id="collapse-account" class="collapse">
                 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Settings</button>
             </div>
+</div>
         </div>
         <div class="butDiv-container">
-
-        <div class="butDiv">
-            <h1>My Posts</h1>
+            
+            <div class="butDiv" >
+                <a class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <h1>My Posts</h1>
+                    </a>
+            <div id="collapseExample" class="collapse">
             <button class="animated zoomIn faster createCard" onclick="ShowCardCreator()" >Create</button>
             <button  class="editCard animated zoomIn fast">Edit</button>
             <button class="animated zoomIn " onclick="ShowDeletablePostList()" class="deleteCard">Delete</button>
+            </div>
         </div>
         </div>
 
         <div class="butDiv-container">
         <div class="butDiv">
-            <h1>My Albums</h1>
+        <a class="btn" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <h1>My Albums</h1>
+                    </a>
+            <div id="collapse2" class="collapse">
             <button class="animated zoomIn faster editCard">Create</button>
             <button class="animated zoomIn fast editCard">Edit</button>
             <button class="animated zoomIn  editCard">Delete</button>
         </div>
 </div>
+</div>
 <div class="butDiv-container">
         <div  class="butDiv">
-            <h1>My Places</h1>
+            <a class="btn" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <h1>My Places</h1>
+                    </a>
+            <div id="collapse3" class="collapse">
             <button class="animated zoomIn faster editCard">Favorites Places</button>
         </div>
     </div>
@@ -202,10 +221,10 @@
             
             <div class="container">
                 <label for="name"><b>Username</b></label>
-                <input id="name" type="text" placeholder="Username" name="name2" required>
+                <input id="name2" type="text" placeholder="Username" name="name2" required>
                 
                 <label for="password"><b>Password</b></label>
-                <input id="password" type="password" placeholder="Password" name="password2" required>
+                <input id="password2" type="password2" placeholder="Password" name="password2" required>
                 
                 <button type="submit" name="save">Register</button>
                 <label>

@@ -117,3 +117,8 @@ hr{
 h4{
     color:white;
 }
+
+input:not(:focus)::-webkit-input-placeholder { color:transparent; }
+input:not(:focus):-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:not(:focus)::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:not(:focus):-ms-input-placeholder { color:transparent; } /* IE 10+ */

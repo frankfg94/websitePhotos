@@ -14,7 +14,7 @@
     <body>
 	<!-- The Navigation bar -->
 
-        
+        <h1 class="profile-intro-title">Good Plans</h1>
         <section>
             <body>
                 <iframe src="https://www.google.com/maps/embed" height=400px width="80%" name="if_maps"></iframe>
