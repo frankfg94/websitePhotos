@@ -11,7 +11,8 @@
 		<link rel="stylesheet" href="../CSS/main.css">
 		<link rel="stylesheet" href="../CSS/notifs.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
-		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
     </head>
 	
 	<body>
@@ -26,7 +27,7 @@
 
 
 	<form class="form" method="POST" action="../PHP/contactMail.php">
-			<h1>Contact Us</h1>
+			<h1 class="animated fadeInLeft faster">Contact Us</h1>
 			<h3 style="color:rgb(63, 63, 63)">Don't hesitate to tell us what you think of our website!</h3>
 			<input name="from" type="email" placeholder="Email Address" required class="inputMail">
 			<input name="name" type="text" placeholder="Name" class="inputFirstName">

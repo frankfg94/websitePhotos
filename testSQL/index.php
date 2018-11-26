@@ -10,9 +10,20 @@ $result = $conn->query($request);
     <title>Picture Post Testing</title>
     <link rel="stylesheet" type="text/css" href="Web/CSS/main.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+    <script>
+            function DownloadImg(event,linkEl)
+    {
+        var clickedAnchor = event.target;
+        var myDiv = clickedAnchor.parentNode.parentNode;
+        var myImage = myDiv.children[1].children[0];
+        linkEl.href = myImage.src;
+        clickedAnchor.download=myImage.src;
+    }
+        </script>
 </head>
 <body >
    <header>
+       
             <a href="index.php">    <i class="fa fa-home" aria-hidden="true"></i><h3>Home</h3></a>
             <a href="Web/HTML/search.php"> <i class="fa fa-search" aria-hidden="true"></i><h3>Search</h3></a>
             <a href="Web/HTML/UserPage.php"><i class="fa fa-user-o" aria-hidden="true"></i><h3>Profile</h3></a>
@@ -21,10 +32,13 @@ $result = $conn->query($request);
     </header>
     <section class="container">
         <h1 id="mainTitle">Pictures in our database</h1>
+        <a href="Web/HTML/home.php">Nouvelle Page</a>;
+
     <?php
       while($row = $result->fetch_assoc()) 
      {
          ?>
+         
          <div class="card">        
              <div class="card-header">
              <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
@@ -48,9 +62,10 @@ $result = $conn->query($request);
                      <p><span class="username">François</span>Test de commentaire</p>
                      <p><span class="username">user1234</span>Sympa!</p>
                  </div>
+                <a href="#" onclick="DownloadImg(event,this)" class="dlBtn" download>Download image</a>
              </div>
          </div>
-    <?php
+    <?php   
      }
      ?>
     </section>

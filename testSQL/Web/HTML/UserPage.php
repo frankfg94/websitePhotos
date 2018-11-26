@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="../CSS/main.css">
         <link rel="stylesheet" href="../CSS/notifs.css">
         <link rel="stylesheet" href="../CSS/loginStyle.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
 <script>
 
@@ -45,15 +46,9 @@
         }
         fr.readAsDataURL(files[0]);
     }
-
     }
 
-    function DownloadImg()
-    {
-        alert("Dowloading the picture...");
-        var myImgSrc = document.getElementById("smallImage").getElementsByTagName("img")[0].src;
 
-    }
 
     function ShowDeletablePostList()
     {
@@ -98,16 +93,38 @@
         ?>
     </div>
     <?php endif ?>
-        <div class="butDiv">
-            <h1>Login</h1>
-            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    <div class="leftProfileMenu animated fadeInLeft faster" >
+        <div class="butDiv-container">
+            <div class="butDiv">
+                <h1>Account Name</h1>
+                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Settings</button>
+            </div>
         </div>
+        <div class="butDiv-container">
+
         <div class="butDiv">
-            <h1>Your Posts</h1>
-            <button onclick="ShowCardCreator()" class="createCard">Create</button>
-            <button class="editCard">Edit</button>
-            <button onclick="ShowDeletablePostList()" class="deleteCard">Delete</button>
+            <h1>My Posts</h1>
+            <button class="animated zoomIn faster createCard" onclick="ShowCardCreator()" >Create</button>
+            <button  class="editCard animated zoomIn fast">Edit</button>
+            <button class="animated zoomIn " onclick="ShowDeletablePostList()" class="deleteCard">Delete</button>
         </div>
+        </div>
+
+        <div class="butDiv-container">
+        <div class="butDiv">
+            <h1>My Albums</h1>
+            <button class="animated zoomIn faster editCard">Create</button>
+            <button class="animated zoomIn fast editCard">Edit</button>
+            <button class="animated zoomIn  editCard">Delete</button>
+        </div>
+</div>
+<div class="butDiv-container">
+        <div  class="butDiv">
+            <h1>My Places</h1>
+            <button class="animated zoomIn faster editCard">Favorites Places</button>
+        </div>
+    </div>
+</div>
         <div>
             <iframe id="iframeDelPosts" src="../PHP/postList.php"></iframe>
         </div>
@@ -126,7 +143,7 @@
             </div>
             <div class="card-content">
                 <input id="file-input" onchange="LoadImg()" type="file" name="name" accept="image/*" style="display: none;" />
-                <img alt="" id="img" draggable="false"  ondragstart="return false"   onclick="SelectImage()" src="http://www.kensap.org/wp-content/uploads/empty-photo.jpg">
+
                 <div class="imageDescrText">Change Image</div>
             </div>
             <div class="card-footer">
@@ -137,7 +154,6 @@
                     <p><span class="username">Comment Area</span>Here will be added your future comments</p>
                 </div>
                 <div>
-                    <button onclick="DownloadImg()" class="dlBtn">Download image</button>
                 </div>
             </div>
 </form>
@@ -157,7 +173,7 @@
                 <label for="password"><b>Password</b></label>
                 <input id="password" type="password" placeholder="Enter Password" name="password" required>
                 
-                <button type="submit" name="save">Login</button>
+                <button type="submit" name="save">Save</button>
                 <label>
                 <input type="checkbox" checked="checked" onclick="ChangeVisibilityPassword()" name="hidePassword"> Hide password
               </label>
@@ -176,6 +192,37 @@
         <div>
             
             </div>
+            <div id="id01" class="modal">
+            
+            <form class="modal-content animate" method="POST" action="../PHP/Users/login.php">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="https://image.flaticon.com/icons/png/128/181/181549.png" alt="Avatar" class="avatar">
+            </div>
+            
+            <div class="container">
+                <label for="name"><b>Username</b></label>
+                <input id="name" type="text" placeholder="Username" name="name2" required>
+                
+                <label for="password"><b>Password</b></label>
+                <input id="password" type="password" placeholder="Password" name="password2" required>
+                
+                <button type="submit" name="save">Register</button>
+                <label>
+                <input type="checkbox" checked="checked" onclick="ChangeVisibilityPassword()" name="hidePassword"> Hide password
+              </label>
+                <label class="row-label">
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+
+                </label class="row-label">
+            </div>
+            
+            <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+            </form>
+        </div>
             <?php include("Elements/footer.html"); ?>
 
 	</body>
