@@ -8,6 +8,7 @@
 		<!-- The link to the css file -->
         <link rel="stylesheet" href="../CSS/main.css">
         <link rel="stylesheet" href="../CSS/goodPlans.css">
+        <!--link rel="stylesheet" href="../CSS/slider3D.css" -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     </head>
 
@@ -30,11 +31,26 @@
             <body>
                 <form>
                     Place of the photo:<br>
-                    <input type="search" value="Search on Maps">
+                    <input type="search" value="Locate on Maps">
                 </form>
-                <div>
+                <div  id="left-carousel">
+                <h1 >Unlocated Posts</h1>
+                <section id="slider">
+                        <input type="radio" name="slider" id="s1">
+                        <input type="radio" name="slider" id="s2">
+                        <input type="radio" name="slider" id="s3" checked>
+                        <input type="radio" name="slider" id="s4">
+                        <input type="radio" name="slider" id="s5">
+                        <label for="s1" id="slide1"></label>
+                        <label for="s2" id="slide2"></label>
+                        <label for="s3" id="slide3"></label>
+                        <label for="s4" id="slide4"></label>
+                        <label for="s5" id="slide5"></label>
+                      </section>
+        </div>
+                <!--div>
                     <img src="../../Pictures/imagePack/birds.jpg" alt="sample image" >
-                </div>
+                </div-->
             </body>
         </section>
 
