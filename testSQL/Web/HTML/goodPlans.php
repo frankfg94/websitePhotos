@@ -20,7 +20,9 @@
             <body>
                 <div>
                     <h2>Places where the photos were taken.</h2>
-                    <iframe src="https://www.google.com/maps/embed" height=400px width="80%" name="if_maps"></iframe>
+                    <!--a link to a personal map-->
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1IVXETNon4Jn5qMCwfYjHAe7C9-ae7w9x" width="640" height="480"></iframe>
+                    <!--iframe src="https://www.google.com/maps/embed" height=400px width="80%" name="if_maps"></iframe-->
                 </div>
                 <p>
                     <a href="https://www.google.com/maps" target="if_maps">Google Maps</a>
