@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<!-- The link to the css file -->
 		<!-- The title of the page -->
-		<title>Contact</title>
+		<title>Your Page</title>
         <link rel="stylesheet" href="../CSS/main.css">
         <link rel="stylesheet" href="../CSS/notifs.css">
         <link rel="stylesheet" href="../CSS/loginStyle.css">
