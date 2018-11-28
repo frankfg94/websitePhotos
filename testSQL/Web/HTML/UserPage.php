@@ -180,7 +180,7 @@
 
             <div id="right" class="card-area-right">
                 <h2>Preview</h2>
-                   <div id="createCard" class="card">        
+                   <div id="createCard" class="card not-bootstrap">        
             <div class="card-header">
                 <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
                 <div class="profile-image">
@@ -251,7 +251,7 @@
                                 </div>
             </div>
 
-        <div id="createCard" class="card">        
+        <div id="createCard" class="card not-bootstrap">        
             <div class="card-header">
                 <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
                 <div class="profile-image">
