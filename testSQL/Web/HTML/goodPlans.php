@@ -3,24 +3,56 @@
 <html lang ="en">
     <head>
 		<meta charset="utf-8" />
+		<!-- The title of the page -->
+        <title>Good_Plans</title>
 		<!-- The link to the css file -->
         <link rel="stylesheet" href="../CSS/main.css">
         <link rel="stylesheet" href="../CSS/goodPlans.css">
+        <!--link rel="stylesheet" href="../CSS/slider3D.css" -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
-		<!-- The title of the page -->
-        	<title>Good_Plans</title>
     </head>
 
     <body>
 	<!-- The Navigation bar -->
 
-        <h1 class="profile-intro-title">Good Plans</h1>
+        <h1 class="pageTitle">Good Plans</h1>
         <section>
             <body>
-                <iframe src="https://www.google.com/maps/embed" height=400px width="80%" name="if_maps"></iframe>
+                <div>
+                    <h2>Places where the photos were taken.</h2>
+                    <!--a link to a personal map-->
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1IVXETNon4Jn5qMCwfYjHAe7C9-ae7w9x" width="640" height="480"></iframe>
+                    <!--iframe src="https://www.google.com/maps/embed" height=400px width="80%" name="if_maps"></iframe-->
+                </div>
                 <p>
                     <a href="https://www.google.com/maps" target="if_maps">Google Maps</a>
                 </p>
+                </body>
+        </section>
+        <section>
+            <body>
+                <form>
+                    Place of the photo:<br>
+                    <input type="search" value="Locate on Maps">
+                </form>
+                <div  id="left-carousel">
+                <h1 >Unlocated Posts</h1>
+                <section id="slider">
+                        <input type="radio" name="slider" id="s1">
+                        <input type="radio" name="slider" id="s2">
+                        <input type="radio" name="slider" id="s3" checked>
+                        <input type="radio" name="slider" id="s4">
+                        <input type="radio" name="slider" id="s5">
+                        <label for="s1" id="slide1"></label>
+                        <label for="s2" id="slide2"></label>
+                        <label for="s3" id="slide3"></label>
+                        <label for="s4" id="slide4"></label>
+                        <label for="s5" id="slide5"></label>
+                      </section>
+        </div>
+                <!--div>
+                    <img src="../../Pictures/imagePack/birds.jpg" alt="sample image" >
+                </div-->
             </body>
         </section>
 
