@@ -12,11 +12,11 @@
   <link rel="stylesheet" href="../CSS/homeStyle.css">
   <link rel="stylesheet" href="../CSS/slider3D.css" >
 
-
 </head>
 <body>
         <?php include("Elements/header.html"); ?>
-        <div  id="left-carousel">
+        <div id="home-main-div">
+            <div  id="left-carousel">
             <h1 >Recent Posts</h1>
                 <section id="slider">
                         <input type="radio" name="slider" id="s1">
@@ -64,6 +64,8 @@
                         </div>
                     </div>
               </div>
+        </div>
+      
               <?php include("Elements/footer.html"); ?>
 </body>
 </html>

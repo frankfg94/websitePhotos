@@ -65,6 +65,16 @@ body {
     transition: 0.4s;
   }
 
+  header a span
+  {
+    opacity: 0;
+    transition: 0.4s;
+
+  }
+
+  header a:hover > span{
+    opacity: 1;
+  }
 
   header a:hover >  h3 /*Edit the properties of search-txt class when hovering  the searchbox class */
   {
@@ -199,9 +209,10 @@ body {
   } 
 
 
-  .description
+  .card-footer .description
   {
     margin-right: 20px;
+    width: 100px;
   }
 
   .username
@@ -312,13 +323,6 @@ font-weight: bold;
 
 
 
-.leftProfileMenu{
-  border: #111 1px solid;
-  margin: 5%;
-  border-radius: 4px;
-  width: 20%;
-  box-shadow: 0 15px 25px rgba(0,0,0,.5);
-}
 
 .butDiv {
   margin: 1vw;
@@ -343,7 +347,7 @@ font-weight: bold;
 }
 
 #createCard input{
-width: 250px;
+width: 300px;
 }
 
 
@@ -391,3 +395,90 @@ background-color: #ebebeb;
   padding-top: 30px;
   text-align: center;
 }
+
+#fader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  pointer-events: none;
+  background: white;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-out {
+  from { opacity: 1 }
+    to { opacity: 0 }
+}
+
+@keyframes fade-in {
+  from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+#fader.fade-out {
+  opacity: 0;
+  animation-name: fade-out;
+}
+
+#fader.fade-in {
+  opacity: 1;
+  animation-name: fade-in;
+}
+
+div.right-side{
+  background: red;
+  width: 80%;
+  display: block;
+  float: right;
+}
+
+div.leftProfileMenu{
+  float:left;
+  display: block;
+  background: blue;
+  border: #111 1px solid;
+  border-radius: 4px;
+  width: 20%;
+  box-shadow: 0 15px 25px rgba(0,0,0,.5);
+}
+
+div.right-side .card-area-left{
+  background: rgb(181, 0, 226);
+  display: block;
+  width: 50%;
+  float: left;
+}
+
+div.right-side .card-area-right{
+  background: rgb(0, 207, 104);
+  display: block;
+  width: 50%;
+  float: right;
+}
+div.right-side .card-create-area{
+  display:block;
+  background: rgb(11, 110, 175);
+  float: left;
+  height: 214px;
+  width: 100%;
+}
+
+.save-btn-card {
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.save-btn-card button{
+  height: 80px;
+}
+
+.save-btn-card button.left-part{
+  width: 120px;
+}
+
+

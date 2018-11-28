@@ -11,6 +11,13 @@ $result = $conn->query($request);
     <link rel="stylesheet" type="text/css" href="Web/CSS/main.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     <script>
+function fadeInPage() {
+    if (!window.AnimationEvent) { return; }
+    var fader = document.getElementById('fader');
+    fader.classList.add('fade-out');
+}
+
+
             function DownloadImg(event,linkEl)
     {
         var clickedAnchor = event.target;
@@ -22,6 +29,10 @@ $result = $conn->query($request);
         </script>
 </head>
 <body >
+        <svg id="fader"></svg>
+        <script>
+            fadeInPage();
+        </script>
    <header>
        
             <a href="index.php">    <i class="fa fa-home" aria-hidden="true"></i><h3>Home</h3></a>

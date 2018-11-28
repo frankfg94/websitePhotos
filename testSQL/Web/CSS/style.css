@@ -37,7 +37,7 @@ body:before, body:after {
   width: 100%;
   position: fixed;
   left: 0;
-  background: #1c2020;
+  background: #fdfdfd;
   z-index: 1;
 }
 body:before {
@@ -125,7 +125,6 @@ h1 {
 .loader > div {
   height: 100%;
   width: 8px;
-  display: inline-block;
   float: left;
   margin-left: 2px;
   -webkit-animation: delay 0.8s infinite ease-in-out;
