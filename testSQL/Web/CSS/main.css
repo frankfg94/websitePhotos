@@ -19,84 +19,84 @@ body {
   }
   
 
-  header a .fa 
-  {
-    color: #111;
-    font-size: 25px;
-  }
+    header a .fa 
+    {
+      color: #111;
+      font-size: 25px;
+    }
 
 
 
-  header 
-  {
-    z-index: 200; /*Permet de rendre visible partout la nav bar*/
-    background: #FAFAFA;
-    border-bottom: 1px solid #ccc;
-    position: fixed;
-    top : 0;
-    left: 0;
-    width: 100%;
-  }
-  header a 
-  {
-    width: 16%;
-    display: inline-block;
-    margin-left: -10px;
-    text-align: center;
-    text-decoration: none;
-    padding: 12px;
-    box-sizing: border-box;
-    z-index: 20; 
-  }
+    header 
+    {
+      z-index: 200; /*Permet de rendre visible partout la nav bar*/
+      background: #FAFAFA;
+      border-bottom: 1px solid #ccc;
+      position: fixed;
+      top : 0;
+      left: 0;
+      width: 100%;
+    }
+    header a 
+    {
+      width: 16%;
+      display: inline-block;
+      margin-left: -10px;
+      text-align: center;
+      text-decoration: none;
+      padding: 12px;
+      box-sizing: border-box;
+      z-index: 20; 
+    }
 
-  /*Ici on définit on couleur différente pour chaque bouton quand la souris passe par dessus/ survole le bouton*/
-  header a:hover .fa-heart-o
-  {
-      color: rgb(255, 0, 0);
-  }
+    /*Ici on définit on couleur différente pour chaque bouton quand la souris passe par dessus/ survole le bouton*/
+    header a:hover .fa-heart-o
+    {
+        color: rgb(255, 0, 0);
+    }
 
-  header a h3
-  {
-    display: inline;
-    margin: 10px;
-    opacity: 0;
-    right: 0;
-    text-decoration: none;
-    transition: 0.4s;
-  }
+    header a h3
+    {
+      display: inline;
+      margin: 10px;
+      opacity: 0;
+      right: 0;
+      text-decoration: none;
+      transition: 0.4s;
+    }
 
-  header a span
-  {
-    opacity: 0;
-    transition: 0.4s;
+    header a span
+    {
+      opacity: 0;
+      transition: 0.4s;
 
-  }
+    }
 
-  header a:hover > span{
-    opacity: 1;
-  }
+    header a:hover > span{
+      opacity: 1;
+    }
 
-  header a:hover >  h3 /*Edit the properties of search-txt class when hovering  the searchbox class */
-  {
-    opacity: 1;
-    display: inline;
-    color: gray;
-    text-decoration: none;
-    right: 0;
-  }
+    header a:hover >  h3 /*Edit the properties of search-txt class when hovering  the searchbox class */
+    {
+      opacity: 1;
+      display: inline;
+      color: gray;
+      text-decoration: none;
+      right: 0;
+    }
 
-  header a:hover .fa-search
-  {
-      color: rgb(0, 0, 255);
-  }
-  header a:hover .fa-home
-  {
-      color: rgb(121, 64, 0);
-  }
-  header a:hover .fa-user-o
-  {
-      color: rgba(0, 255, 136, 0.596);
-  }
+    header a:hover .fa-search
+    {
+        color: rgb(0, 0, 255);
+    }
+    header a:hover .fa-home
+    {
+        color: rgb(121, 64, 0);
+    }
+    header a:hover .fa-user-o
+    {
+        color: rgba(0, 255, 136, 0.596);
+    }
 
   .container
   {
