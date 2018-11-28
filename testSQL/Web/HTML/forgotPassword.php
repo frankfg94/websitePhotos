@@ -10,6 +10,7 @@
 
 </head>
 <body>
+        <?php include("Elements/header.html"); ?>
     <div class="box">
         <h2>Forgot Password</h2>
         <h4>Type in your Email Address to request a password reset</h4>
@@ -20,7 +21,7 @@
                     </div>
                 <input type="submit" name="" value="Send">
                 <hr>
-                <input onclick="location.href='connection.html';" type="button" value="Go Back To Login Page" ></input>
+                <input onclick="location.href='connection.php';" type="button" value="Go Back To Login Page" ></input>
                 
             </form>
     </div>

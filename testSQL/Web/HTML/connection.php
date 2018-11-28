@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+        <?php include('C:\wamp\www\websitePhotos\testSQL\Web\PHP\CRUD\createUser.php'); ?>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Connect</title>
@@ -8,7 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/connection.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     <link rel="stylesheet" href="../CSS/header.css">
-
+    <link rel="stylesheet"  type="text/css" href="../CSS/notifs.css"/>
 
     <script>
   
@@ -31,23 +33,31 @@
 </head>
 <body>
 <?php include("Elements/header.html"); ?>
+<?php if(isset($_SESSION['msg'])): ?>
+    <div class="msg">
+        <?php
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+        ?>
+    </div>
+   <?php endif ?>
     <div class="box">
         <h2>Login</h2>
-        <form>  
+        <form method="POST" action="../PHP/Users/login.php">  
             <div class="inputBox">
-                <input type="text" name="" required="">
+                <input type="text" name="name" required="">
                 <label>Username</label>
             </div>
             <div class="inputBox">
                 
-                <input type="password" id="pwd" name="" required="">
+                <input type="password" id="pwd" name="password" required="">
                 <label>Password</label>
                 <i class="fa fa-eye" id="eye" ></i>
                 </div>
-                <input type="submit" name="" value="Submit">
+                <input type="submit" name="save" value="Submit">
                 <hr>
-                <input onclick="location.href='subscribe.html';" type="button" value="Create Your Account Now" ></input>
-                <a href="forgotPassword.html" style="text-decoration:none;"><h4>Forgot Password?</h4></a>
+                <input onclick="location.href='subscribe.php';" type="button" value="Create Your Account Now" ></input>
+                <a href="forgotPassword.php" style="text-decoration:none;"><h4>Forgot Password?</h4></a>
             </form>
     </div>
 </body>
