@@ -287,7 +287,8 @@ border-radius:1px;
   border: none;
 }
 
-.footerRight li{
+.footerRight li
+{
   display: inline;
 }
 
@@ -480,5 +481,3 @@ div.right-side .card-create-area{
 .save-btn-card button.left-part{
   width: 120px;
 }
-
-
