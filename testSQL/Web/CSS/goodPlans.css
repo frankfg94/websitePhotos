@@ -1,6 +1,96 @@
 section
 {
-    margin-top: 100px;
-    padding: 10px;
     text-align: center;
+    padding: 10px
+}
+
+h1.pageTitle
+{
+    margin-top: 60px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+div > h2
+{
+    font-size: 100%;
+}
+
+/*hide the radio buttons*/
+[type=radio]
+{
+    display: none;
+}
+
+#slider
+{ 
+    height: 15vw;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    margin-top: 20%;
+    font-family: 'Open Sans', sans-serif;
+}
+  
+#slider label
+{
+    margin: auto;
+    width: 25%;
+    height: 100%;
+    border-radius: 4px;
+    position: absolute;
+    left: 0; right: 0;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+#s1:checked ~ #slide4, #s2:checked ~ #slide5,
+#s3:checked ~ #slide1, #s4:checked ~ #slide2,
+#s5:checked ~ #slide3
+{
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
+    transform: translate3d(-30%,0,-200px);
+}
+  
+#s1:checked ~ #slide5, #s2:checked ~ #slide1,
+#s3:checked ~ #slide2, #s4:checked ~ #slide3,
+#s5:checked ~ #slide4
+{
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
+    transform: translate3d(-15%,0,-100px);
+}
+  
+#s1:checked ~ #slide1, #s2:checked ~ #slide2,
+#s3:checked ~ #slide3, #s4:checked ~ #slide4,
+#s5:checked ~ #slide5
+{
+    box-shadow: 0 13px 25px 0 rgba(0,0,0,.3), 0 11px 7px 0 rgba(0,0,0,.19);
+    transform: translate3d(0,0,0);
+}
+  
+#s1:checked ~ #slide2, #s2:checked ~ #slide3,
+#s3:checked ~ #slide4, #s4:checked ~ #slide5,
+#s5:checked ~ #slide1
+{
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
+    transform: translate3d(15%,0,-100px);
+}
+  
+#s1:checked ~ #slide3, #s2:checked ~ #slide4,
+#s3:checked ~ #slide5, #s4:checked ~ #slide1,
+#s5:checked ~ #slide2
+{
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
+    transform: translate3d(30%,0,-200px);
+}
+
+#slide1 { background: rgb(248, 11, 248) }
+#slide2 { background: rgb(139, 8, 8) }
+#slide3 { background: rgb(167, 156, 7) }
+#slide4 { background: rgb(20, 126, 16) }
+#slide5 { background: rgb(27, 204, 228) }
+
+#slider
+{
+    margin-top: 0%;
 }
