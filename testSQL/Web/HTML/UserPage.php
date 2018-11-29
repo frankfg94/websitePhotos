@@ -121,23 +121,124 @@
             echo $_SESSION['msgErr'];
             unset($_SESSION['msgErr']);
             ?>
-                        </div>
-                        <?php endif ?>
+        </div>
+        <?php endif ?>
+        
+    <h1 class="profile-intro-title">Welcome to your profile</h1>
+    <div id="accordionExample" class="accordion leftProfileMenu animated fadeInLeft faster" >
+        <div class="card-profile-navbar"> 
+            <div >
+              <div >
+                  <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
 
-                            <h1 class="profile-intro-title">Welcome to your profile</h1>
+                <img height="130px" width="100%" src="https://www.muralswallpaper.com/app/uploads/Autumn-Forest-Plain.jpg"></img>
+              </div>
+                <h3>Gillioen François</h3> 
+        </div>
+      </div>
+        <div class="butDiv-container" data-parent="#accordionExample"> 
+            <div class="butDiv">
+                <a class="btn" data-toggle="collapse" href="#collapse-account" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <h1>Account Name</h1>
+                    </a>
+            <div id="collapse-account" class="collapse">
+                <button style="width:auto;">Settings</button>
+            </div>
+        </div>
+        </div>
+        <div class="butDiv-container">
+            
+            <div class="butDiv" >
+                <a class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <h1>My Posts</h1>
+                    </a>
+            <div id="collapseExample" class="collapse">
+            <button class="animated zoomIn faster createCard" onclick="ShowCardCreator()" >Create</button>
+            <a style="color:rgb(59, 59, 59);" href="../../index2.php"><button class="editCard animated zoomIn fast">Edit</button></a>
+            <button class="animated zoomIn " onclick="ShowDeletablePostList()" class="deleteCard">Delete</button>
+            </div>
+        </div>
+        </div>
 
-                            <!--Accordion menu on the left-->
-                            <div id="accordionExample" class="accordion leftProfileMenu animated fadeInLeft faster">
+        <div class="butDiv-container">
+        <div class="butDiv">
+        <a id="album" class="btn" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <h1 >My Albums</h1>
+                    </a>
+            <div id="collapse2" class="collapse">
+                <a  href="album.html" >
+                    <button  class="animated zoomIn faster editCard">Create</button>
+                </a>
+            <button  onclick="hideDivs()"  class="animated zoomIn fast editCard">Edit</button>
+            <button   class="animated zoomIn  editCard">Delete</button>
+        </div>
+    </div>
+</div>
+<div class="butDiv-container">
+    <div  class="butDiv">
+            <a class="btn" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <h1>My Places</h1>
+            </a>
+            <div id="collapse3" class="collapse">
+                <a href="goodPlans.php"><button class="animated zoomIn faster editCard">Favorites Places</button></a>
+        </div>
+    </div>
+</div>
+</div>
+<div class="right-side">
+<div>
+            <iframe id="iframeDelPosts" src="../PHP/postList.php"></iframe>
+        </div>
+        <form method="POST" action="../PHP/CRUD/">
 
-                                <!--Account-->
-                                <div class="butDiv-container" data-parent="#accordionExample">
-                                    <div class="butDiv">
-                                        <a class="btn" data-toggle="collapse" href="#collapse-account" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            <h1>Account Name</h1>
-                                        </a>
-                                        <div id="collapse-account" class="collapse">
-                                            <button style="width:auto;">Settings</button>
-                                        </div>
+            <div id="right" class="card-area-right">
+                <h2>Preview</h2>
+                   <div id="createCard" class="card not-bootstrap">        
+            <div class="card-header">
+                <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
+                <div class="profile-image">
+                    <img alt="François's User Icon" draggable="false"   ondragstart="return false"  class="icon" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
+                </div>
+                <div class="profile-info">
+                    <div class="name">François Gillioen</div>
+                    <div class="location"><input type="text" placeholder="Enter the place"></div>
+                </div>
+                <div id="date" class="date"></div>
+            </div>
+            <div class="card-content">
+                <input id="file-input" onchange="LoadImg()" type="file" name="name" accept="image/*" style="display: none;" />
+                <img alt="" id="img" draggable="false"  ondragstart="return false"   onclick="SelectImage()" src="http://www.kensap.org/wp-content/uploads/empty-photo.jpg">
+                <div class="imageDescrText">Change Image</div>
+            </div>
+            <div class="card-footer">
+                <div class="description">
+                    <input type="text" placeholder="Enter the description of the image">
+                </div>  
+                <div class="comments">
+                    <p><span class="username">Comment Area</span>Here will be added your future comments</p>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div id="left" class="card-area-left">
+                    <div class="big-indexes">
+                        <h2>Creating Your Post</h2>
+                      <ol>
+                        <li><span>1.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur. Fusce nec leo ut massa viverra venenatis. Nam accumsan libero a elit aliquet quis ullamcorper arcu tincidunt. Praesent purus turpis, consectetur quis congue vel, pulvinar at lorem. Vivamus varius condimentum dolor, quis ultricies ipsum porta quis. </p></li>
+                        <li><span>2.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
+                        <li><span>3.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
+                      </ol> 
+                    </div>
+                    <div  id="bottom" class="card-create-area">
+                            <div class="btn-group save-btn-card">
+                                    <button type="button" data-toggle="modal" data-target="#exampleModal" class="left-part btn btn-success">Publish</button>
+                                    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu save-btn-drop">
+                                      <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal" href="#">Save As Draft</a>
+                                      <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModal" href="#">Save As Template</a>
+                                      <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal"  href="#">Save In Album</a>
                                     </div>
                                 </div>
 
