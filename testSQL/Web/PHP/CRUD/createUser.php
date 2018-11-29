@@ -39,7 +39,7 @@ if(isset($_POST['save']))
     echo "Variables initialized". "<br>";
 
     // Insert Post into the Database
-    $query = "INSERT INTO User VALUES ('$mail', '$password', '$name', '$status')"; // A CHANGER suscribe
+    $query = "INSERT INTO User VALUES ('$mail', '$password', '$name', '$status', 4)"; // A CHANGER suscribe
     if(!    $result = mysqli_query($conn, $query))
     {
         echo "Query Error". "<br>";
