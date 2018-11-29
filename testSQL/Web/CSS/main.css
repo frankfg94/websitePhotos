@@ -117,7 +117,7 @@ header a .fa
     bottom: 0;
   }
 
-   .card
+   .card.not-bootstrap
   {
     background: #fff;
     margin: 0 auto; /*Center l'élément "card" au centre du "container"*/

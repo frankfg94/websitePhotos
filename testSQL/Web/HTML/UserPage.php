@@ -1,5 +1,5 @@
-<?php include('C:\wamp\www\websitePhotos\testSQL\Web\PHP\Users\login.php'); ?>
 <?php include("Elements/header.html"); ?>
+<?php include('C:\wamp\www\websitePhotos\testSQL\Web\PHP\Users\login.php'); ?>
 
 <!DOCTYPE html>
 <html lang ="en">
@@ -106,21 +106,22 @@
         <!-- The Navigation bar -->
         
         <?php if(isset($_SESSION['msg'])): ?>
-    <div class="msg">
-        <?php
-        echo $_SESSION['msg'];
-        unset($_SESSION['msg']);
-        ?>
-    </div>
-    <?php endif ?>
-    <?php if(isset($_SESSION['msgErr'])): ?>
-    <div class="msgErr">
-        <?php
-        echo $_SESSION['msgErr'];
-        unset($_SESSION['msgErr']);
-        ?>
-    </div>
-    <?php endif ?>
+        <div class="msg">
+            <?php
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+            ?>
+        </div>
+        <?php endif ?>
+        <?php if(isset($_SESSION['msgErr'])): ?>
+        <div class="msgErr">
+            <?php
+            echo $_SESSION['msgErr'];
+            unset($_SESSION['msgErr']);
+            ?>
+        </div>
+        <?php endif ?>
+
     <h1 class="profile-intro-title">Welcome to your profile</h1>
     <div id="accordionExample" class="accordion leftProfileMenu animated fadeInLeft faster" >
         <div class="butDiv-container" data-parent="#accordionExample"> 
@@ -180,7 +181,7 @@
 
             <div id="right" class="card-area-right">
                 <h2>Preview</h2>
-                   <div id="createCard" class="card">        
+                   <div id="createCard" class="card not-bootstrap">        
             <div class="card-header">
                 <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
                 <div class="profile-image">
@@ -251,7 +252,7 @@
                                 </div>
             </div>
 
-        <div id="createCard" class="card">        
+        <div id="createCard" class="card not-bootstrap">        
             <div class="card-header">
                 <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
                 <div class="profile-image">
