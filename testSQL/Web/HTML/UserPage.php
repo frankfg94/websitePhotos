@@ -25,7 +25,7 @@
                     document.getElementById('file-input').click();
                 }
 
-                function hideDivs() {
+                function showAlbums() {
                     var left = document.getElementById("left");
                     var right = document.getElementById("right");
                     var bottom = document.getElementById("bottom");
@@ -68,6 +68,19 @@
 
                 function ShowCardCreator() {
                     document.getElementById('createCard').style.display = 'block';
+                    var left = document.getElementById("left");
+                    var right = document.getElementById("right");
+                    var bottom = document.getElementById("bottom");
+
+                    var album = document.getElementById("album2");
+                    var footer = document.getElementById("footerAlbum");
+
+                    left.style.display = "block";
+                    right.style.display = "block";
+                    bottom.style.display = "block";
+
+                    album.style.display = "none";
+                    footer.style.display = "none";
                 }
 
                 window.onload = function() {
@@ -154,7 +167,7 @@
                                             <a href="album.html">
                                                 <button class="animated zoomIn faster editCard">Create</button>
                                             </a>
-                                            <button onclick="hideDivs()" class="animated zoomIn fast editCard">Edit</button>
+                                            <button onclick="showAlbums()" class="animated zoomIn fast editCard">Edit</button>
                                             <button class="animated zoomIn  editCard">Delete</button>
                                         </div>
                                     </div>
