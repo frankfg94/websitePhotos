@@ -8,7 +8,7 @@
 
 		<!-- The link to the css file -->
 		<!-- The title of the page -->
-		<title>Contact</title>
+		<title>Feedback</title>
 		<link rel="stylesheet" href="../CSS/contactResponsive.css">
 		<link rel="stylesheet" href="../CSS/main.css">
 		<link rel="stylesheet" href="../CSS/notifs.css">
@@ -28,7 +28,7 @@
 
 
 	<form class="form" method="POST" action="../PHP/contactMail.php">
-			<h1 class="animated fadeInLeft faster">Contact Us</h1>
+			<h1 class="animated fadeInLeft faster">Send us your feedback</h1>
 			<h3 style="color:rgb(63, 63, 63)">Don't hesitate to tell us what you think of our website!</h3>
 			<input name="from" type="email" placeholder="Email Address" required class="inputMail">
 			<input name="name" type="text" placeholder="Name" class="inputFirstName">
