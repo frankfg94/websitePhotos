@@ -1,4 +1,4 @@
-<?php include('C:\wamp\www\websitePhotos\testSQL\Web\PHP\CRUD\createUser.php'); ?>
+<?php include('../PHP/CRUD/createUser.php'); ?>
 
 <!DOCTYPE html>
 <html>

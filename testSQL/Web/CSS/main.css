@@ -28,7 +28,7 @@ header a .fa
 
 @media screen and (max-width: 1400px)
 {
-  header a h3
+  header h3
   {
     font-size: 30px;
   }

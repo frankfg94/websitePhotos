@@ -1,5 +1,5 @@
 <?php include("Elements/header.html"); ?>
-<?php include('C:\wamp\www\websitePhotos\testSQL\Web\PHP\Users\login.php'); ?>
+<?php include('../PHP/Users/login.php'); ?>
 
 <!DOCTYPE html>
 <html lang ="en">

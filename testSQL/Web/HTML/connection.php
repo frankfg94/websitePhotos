@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <?php include('C:\wamp\www\websitePhotos\testSQL\Web\PHP\CRUD\createUser.php'); ?>
+        <?php include('../PHP/CRUD/createUser.php'); ?>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
