@@ -33,7 +33,7 @@
     </script>
 </head>
 <body>
-<?php include("Elements/header.html"); ?>
+<?php include("Elements/header.php"); ?>
 <?php if(isset($_SESSION['msg'])): ?>
     <div class="msg">
         <?php

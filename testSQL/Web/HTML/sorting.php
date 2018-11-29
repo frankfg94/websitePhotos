@@ -1,4 +1,4 @@
-<?php include("Elements/header.html"); ?>
+<?php include("Elements/header.php"); ?>
 <!doctype html>
 <html class="export" lang="en">
 <head>

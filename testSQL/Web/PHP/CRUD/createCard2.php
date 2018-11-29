@@ -13,7 +13,7 @@ $uploadDate = date("m.d.y");
 $title = "";
 $location = "";
 $photoId = 10;
-$userId = 0;
+$userId = 0;    
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,26 +22,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully". "<br>";
+echo "Connected successfully (createCard2.php)". "<br>";
  
 $results = mysqli_query($conn, "SELECT * FROM Post");
-
-
-if(isset($_GET['del']))
-{
-    $photoId = $_GET['del'];
-    mysqli_query($conn, "DELETE FROM Post WHERE photoId=$photoId");
-    header('location: index.php');
-    // Display notification
-    $_SESSION['msg'] ="Post Deleted";
-}
-
 
 // Check button click
 if(isset($_POST['save']))
 {
-    $photoPath = $_POST['photoPath'];
-    $title = $_POST['title'];
+    $photoPath = "https://www.thesignmaker.co.nz/wp-content/uploads/2018/03/CA4_Work-In-Progress-symbol.jpg";
+    $title = $_POST['description'];
     $location = $_POST['location'];
 
 
@@ -49,13 +38,15 @@ if(isset($_POST['save']))
     $query = "INSERT INTO Post VALUES ('$photoPath', '$title', '$uploadDate', '$location', '$photoId', '$userId')";
     if(!    $result = mysqli_query($conn, $query))
     {
+        echo "Query ERROR .<br>";
         die($conn->connect_error);  
     }
     else {
-        // Retrieve database results
 
+        echo "Post is now created ! ";
+        
         // Redirect to index page
-        header('location: index.php');
+        header('location: ../../HTML/userPage.php');
         // Display notification
         $_SESSION['msg'] ="Post created";
         

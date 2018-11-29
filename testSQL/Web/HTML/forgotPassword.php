@@ -1,4 +1,4 @@
-<!doctype <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,7 +10,7 @@
 
 </head>
 <body>
-        <?php include("Elements/header.html"); ?>
+        <?php include("Elements/header.php"); ?>
     <div class="box">
         <h2>Forgot Password</h2>
         <h4>Type in your Email Address to request a password reset</h4>

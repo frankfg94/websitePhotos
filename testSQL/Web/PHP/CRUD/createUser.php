@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 //Initialize variables for Database
 $servername = "den1.mysql2.gear.host";
@@ -23,7 +22,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully". "<br>";
+echo "Connected successfully to database (createUser.php)". "<br>";
  
 $results = mysqli_query($conn, "SELECT * FROM User");
 
@@ -39,7 +38,7 @@ if(isset($_POST['save']))
     echo "Variables initialized". "<br>";
 
     // Insert Post into the Database
-    $query = "INSERT INTO User VALUES ('$mail', '$password', '$name', '$status')"; // A CHANGER suscribe
+    $query = "INSERT INTO User (mail,password,name,status) VALUES ('$mail', '$password', '$name', '$status')";
     if(!    $result = mysqli_query($conn, $query))
     {
         echo "Query Error". "<br>";
@@ -47,9 +46,19 @@ if(isset($_POST['save']))
     else {
         echo "Query Done". "<br>";
         // Redirect to index page
+        echo "Displaying notification";
         header('location: ../../HTML/connection.php');
+        try
+        {
+            session_abort();
+            session_destroy();
+        }
+        finally
+        {
+            session_start();    
+        }
         // Display notification
-        $_SESSION['msg'] ="Account created successfully";
+        $_SESSION['subscribed'] ="Account created successfully";
         
     }
 

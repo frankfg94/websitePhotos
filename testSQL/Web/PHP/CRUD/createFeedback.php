@@ -22,43 +22,31 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully". "<br>";
+echo "Connected successfully (createFeedback.php)". "<br>";
  
-$results = mysqli_query($conn, "SELECT * FROM Post");
-
-
-if(isset($_GET['del']))
-{
-    $photoId = $_GET['del'];
-    mysqli_query($conn, "DELETE FROM Post WHERE photoId=$photoId");
-    header('location: index.php');
-    // Display notification
-    $_SESSION['msg'] ="Post Deleted";
-}
-
+$results = mysqli_query($conn, "SELECT * FROM Feedback");
 
 // Check button click
 if(isset($_POST['save']))
 {
-    $photoPath = $_POST['photoPath'];
-    $title = $_POST['title'];
-    $location = $_POST['location'];
+    $from = $_POST['from'];
+    $name = $_POST['name'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
 
-
-    // Insert Post into the Database
-    $query = "INSERT INTO Post VALUES ('$photoPath', '$title', '$uploadDate', '$location', '$photoId', '$userId')";
+    // Insert Feedback into the Database
+    $query = "INSERT INTO Feedback (mail,name,subject,message) VALUES ('$from', '$name', '$subject', '$message')";
     if(!    $result = mysqli_query($conn, $query))
     {
+        echo "Query ERROR.<br>";
         die($conn->connect_error);  
     }
     else {
-        // Retrieve database results
-
+        echo "Feedback sent ! ";
         // Redirect to index page
-        header('location: index.php');
+        header('location: ../../HTML/Contact.php');
         // Display notification
-        $_SESSION['msg'] ="Post created";
-        
+        $_SESSION['msg'] ="Thanks for your Feedback";
     }
 
 }

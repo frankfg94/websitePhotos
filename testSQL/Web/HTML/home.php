@@ -14,7 +14,7 @@
 
 </head>
 <body>
-        <?php include("Elements/header.html"); ?>
+        <?php include("Elements/header.php"); ?>
         <div id="home-main-div">
             <div  id="left-carousel">
             <h1 >Recent Posts</h1>

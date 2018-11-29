@@ -1,4 +1,4 @@
-<?php include("Elements/header.html"); ?>
+<?php include("Elements/header.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en" >

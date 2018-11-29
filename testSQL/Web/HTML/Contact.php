@@ -1,5 +1,4 @@
-<?php include("../PHP/contactMail.php") ; ?> 
-<?php include("Elements/header.html"); ?>
+<?php include("Elements/header.php"); ?>
 <!DOCTYPE html>
 <!--This is a test for git-->
 <html lang ="en">
@@ -17,24 +16,16 @@
     </head>
 	
 	<body>
-    <?php if(isset($_SESSION['msg'])): ?>
-    <div class="msg">
-        <?php
-        echo $_SESSION['msg'];
-        unset($_SESSION['msg']);
-        ?>
-    </div>
-    <?php endif ?>
+	<?php include_once("../PHP/CRUD/createFeedback.php"); ?>
 
-
-	<form class="form" method="POST" action="../PHP/contactMail.php">
+	<form class="form" method="POST" action="../PHP/CRUD/createFeedback.php">
 			<h1 class="animated fadeInLeft faster">Send us your feedback</h1>
 			<h3 style="color:rgb(63, 63, 63)">Don't hesitate to tell us what you think of our website!</h3>
 			<input name="from" type="email" placeholder="Email Address" required class="inputMail">
-			<input name="name" type="text" placeholder="Name" class="inputFirstName">
-			<input name="subject" type="text" placeholder="Subject" class="inputLastName">
-			<textarea name="message" maxlength="2500" placeholder="Your Message" class="inputMsg"></textarea>
-			<input type="submit" value="Submit">
+			<input name="name" required type="text" placeholder="Name" class="inputFirstName">
+			<input name="subject" required type="text" placeholder="Subject" class="inputLastName">
+			<textarea name="message" required maxlength="2500" placeholder="Your Message" class="inputMsg"></textarea>
+			<input type="submit" name="save" value="Submit">
 	</form>
 	
 	<!--footer part-->

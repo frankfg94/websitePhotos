@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <?php include('../PHP/CRUD/createUser.php'); ?>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,12 +31,23 @@
     </script>
 </head>
 <body>
-<?php include("Elements/header.html"); ?>
-<?php if(isset($_SESSION['msg'])): ?>
+<?php include("Elements/header.php"); ?>
+<?php include('../PHP/CRUD/createUser.php'); ?>
+
+
+<?php if(isset($_SESSION['connected'])): ?>
     <div class="msg">
         <?php
-        echo $_SESSION['msg'];
-        unset($_SESSION['msg']);
+        echo $_SESSION['msgDisconnect'];
+        unset($_SESSION['connected']);
+        ?>
+    </div>
+   <?php endif ?>
+   <?php if(isset($_SESSION['subscribed'])): ?>
+    <div class="msg">
+        <?php
+        echo $_SESSION['subscribed'];
+        unset($_SESSION['subscribed']);
         ?>
     </div>
    <?php endif ?>

@@ -35,7 +35,7 @@
                 <a href="#">Edit</a>
             </td>
             <td>
-                <a href="#">Delete</a>
+                <a href="server.php?del=<?php echo $row['photoId']; ?>" href="#">Delete</a>
             </td>
         </tr>
             <?php } ?>

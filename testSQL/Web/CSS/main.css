@@ -492,6 +492,7 @@ div.right-side .card-create-area{
   top:50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  margin-top: 5vw;
 }
 
 .save-btn-card button{
@@ -508,7 +509,7 @@ div.right-side .card-create-area{
 
 
 .card-profile-navbar h3{
-  height: 100%;
+  height: auto;
   margin: 10%;
   text-align: center;
   background: #FAFAFA;

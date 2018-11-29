@@ -1,5 +1,5 @@
-<?php include("Elements/header.html"); ?>
-<?php include('../PHP/Users/login.php'); ?>
+<?php include_once("Elements/header.php"); ?>
+
 
 <!DOCTYPE html>
 <html lang ="en">
@@ -82,6 +82,7 @@
     function ShowCardCreator()
     {
         document.getElementById('createCard').style.display='block';
+        document.getElementById('publish-btn').style.display='inline-block';
     }
 
     window.onload = function()
@@ -105,23 +106,9 @@
     <body>  
         <!-- The Navigation bar -->
         
-        <?php if(isset($_SESSION['msg'])): ?>
-        <div class="msg">
-            <?php
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
-            ?>
-        </div>
-        <?php endif ?>
-        <?php if(isset($_SESSION['msgErr'])): ?>
-        <div class="msgErr">
-            <?php
-            echo $_SESSION['msgErr'];
-            unset($_SESSION['msgErr']);
-            ?>
-        </div>
-        <?php endif ?>
-        
+
+
+
     <h1 class="profile-intro-title">Welcome to your profile</h1>
     <div id="accordionExample" class="accordion leftProfileMenu animated fadeInLeft faster" >
         <div class="card-profile-navbar"> 
@@ -153,7 +140,7 @@
             <div id="collapseExample" class="collapse">
             <button class="animated zoomIn faster createCard" onclick="ShowCardCreator()" >Create</button>
             <a style="color:rgb(59, 59, 59);" href="../../index2.php"><button class="editCard animated zoomIn fast">Edit</button></a>
-            <button class="animated zoomIn " onclick="ShowDeletablePostList()" class="deleteCard">Delete</button>
+           <a  href="../PHP/CRUD/index.php" > <button class="animated zoomIn " onclick="ShowDeletablePostList()" class="deleteCard">Delete</button></a>
             </div>
         </div>
         </div>
@@ -187,7 +174,7 @@
 <div>
             <iframe id="iframeDelPosts" src="../PHP/postList.php"></iframe>
         </div>
-        <form method="POST" action="../PHP/CRUD/">
+        <form method="POST" action="../PHP/CRUD/createCard2.php">
 
             <div id="right" class="card-area-right">
                 <h2>Preview</h2>
@@ -199,37 +186,26 @@
                 </div>
                 <div class="profile-info">
                     <div class="name">François Gillioen</div>
-                    <div class="location"><input type="text" placeholder="Enter the place"></div>
+                    <div class="location"><input name="location" type="text" placeholder="Enter the place"></div>
                 </div>
                 <div id="date" class="date"></div>
             </div>
             <div class="card-content">
-                <input id="file-input" onchange="LoadImg()" type="file" name="name" accept="image/*" style="display: none;" />
-                <img alt="" id="img" draggable="false"  ondragstart="return false"   onclick="SelectImage()" src="http://www.kensap.org/wp-content/uploads/empty-photo.jpg">
+                <input name="file-input" id="file-input" onchange="LoadImg()" type="file" name="name" accept="image/*" style="display: none;" />
+                <img  alt="" id="img" draggable="false"  ondragstart="return false"   onclick="SelectImage()" src="http://www.kensap.org/wp-content/uploads/empty-photo.jpg">
                 <div class="imageDescrText">Change Image</div>
             </div>
             <div class="card-footer">
                 <div class="description">
-                    <input type="text" placeholder="Enter the description of the image">
+                    <input name="description" type="text" placeholder="Enter the description of the image">
                 </div>  
                 <div class="comments">
                     <p><span class="username">Comment Area</span>Here will be added your future comments</p>
                 </div>
             </div>
             </div>
-            </div>
-            <div id="left" class="card-area-left">
-                    <div class="big-indexes">
-                        <h2>Creating Your Post</h2>
-                      <ol>
-                        <li><span>1.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur. Fusce nec leo ut massa viverra venenatis. Nam accumsan libero a elit aliquet quis ullamcorper arcu tincidunt. Praesent purus turpis, consectetur quis congue vel, pulvinar at lorem. Vivamus varius condimentum dolor, quis ultricies ipsum porta quis. </p></li>
-                        <li><span>2.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
-                        <li><span>3.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
-                      </ol> 
-                    </div>
-                    <div  id="bottom" class="card-create-area">
-                            <div class="btn-group save-btn-card">
-                                    <button type="button" data-toggle="modal" data-target="#exampleModal" class="left-part btn btn-success">Publish</button>
+                   <div style="display:none" id="publish-btn" class="btn-group save-btn-card">
+                                    <button type="submit" name="save" data-toggle="modal" data-target="#exampleModal" class="left-part btn btn-success">Publish</button>
                                     <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
@@ -239,7 +215,6 @@
                                       <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal"  href="#">Save In Album</a>
                                     </div>
                                   </div>
-                                  
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -260,7 +235,20 @@
                                     </div>
                                     </div>
                                 </div>
+                              </form>
+
             </div>
+            <div id="left" class="card-area-left">
+                    <div class="big-indexes">
+                        <h2>Creating Your Post</h2>
+                      <ol>
+                        <li><span>1.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur. Fusce nec leo ut massa viverra venenatis. Nam accumsan libero a elit aliquet quis ullamcorper arcu tincidunt. Praesent purus turpis, consectetur quis congue vel, pulvinar at lorem. Vivamus varius condimentum dolor, quis ultricies ipsum porta quis. </p></li>
+                        <li><span>2.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
+                        <li><span>3.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
+                      </ol> 
+                    </div>
+                    <div  id="bottom" class="card-create-area">
+                                 </div>
 
         <div id="createCard" class="card not-bootstrap">        
             <div class="card-header">
@@ -288,72 +276,10 @@
                 </div>
                 <div>
                     </div>
-                </form>
             </div>
         </div>
-        <div id="id01" class="modal">
-            
-            <form class="modal-content animate" method="POST" action="../PHP/Users/login.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="https://image.flaticon.com/icons/png/128/181/181549.png" alt="Avatar" class="avatar">
-            </div>
-            
-            <div class="container">
-                <label for="name"><b>Username</b></label>
-                <input id="name" type="text" placeholder="Enter Username" name="name" required>
-                
-                <label for="password"><b>Password</b></label>
-                <input id="password" type="password" placeholder="Enter Password" name="password" required>
-                
-                <button type="submit" name="save">Save</button>
-                <label>
-                <input type="checkbox" checked="checked" onclick="ChangeVisibilityPassword()" name="hidePassword"> Hide password
-              </label>
-                <label class="row-label">
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
 
-                </label class="row-label">
-            </div>
-            
-            <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
-        </div>
 
-            <div id="id01" class="modal">
-            
-            <form class="modal-content animate" method="POST" action="../PHP/Users/login.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="https://image.flaticon.com/icons/png/128/181/181549.png" alt="Avatar" class="avatar">
-            </div>
-            
-            <div class="container">
-                <label for="name"><b>Username</b></label>
-                <input id="name2" type="text" placeholder="Username" name="name2" required>
-                
-                <label for="password"><b>Password</b></label>
-                <input id="password2" type="password2" placeholder="Password" name="password2" required>
-                
-                <button type="submit" name="save">Register</button>
-                <label>
-                <input type="checkbox" checked="checked" onclick="ChangeVisibilityPassword()" name="hidePassword"> Hide password
-              </label>
-                <label class="row-label">
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-
-                </label class="row-label">
-            </div>
-            
-            <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
-        </div>
     </div>
     <main id="album2" role="main">
 
