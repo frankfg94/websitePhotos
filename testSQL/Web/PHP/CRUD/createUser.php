@@ -39,7 +39,7 @@ if(isset($_POST['save']))
 
     // Insert Post into the Database
     $query = "INSERT INTO User (mail,password,name,status) VALUES ('$mail', '$password', '$name', '$status')";
-    if(!    $result = mysqli_query($conn, $query))
+    if(!$result = mysqli_query($conn, $query))
     {
         echo "Query Error". "<br>";
     }

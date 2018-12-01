@@ -110,17 +110,22 @@
 
 
     <h1 class="profile-intro-title">Welcome to your profile</h1>
+    
+    <!--Accordion Menu-->
     <div id="accordionExample" class="accordion leftProfileMenu animated fadeInLeft faster" >
+        <!--Profile picture-->
         <div class="card-profile-navbar"> 
             <div >
               <div >
-                  <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
+                    <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
 
                 <img height="130px" width="100%" src="https://www.muralswallpaper.com/app/uploads/Autumn-Forest-Plain.jpg"></img>
-              </div>
+                </div>
                 <h3>Gillioen François</h3> 
+            </div>
         </div>
-      </div>
+
+        <!--Account-->
         <div class="butDiv-container" data-parent="#accordionExample"> 
             <div class="butDiv">
                 <a class="btn" data-toggle="collapse" href="#collapse-account" role="button" aria-expanded="false" aria-controls="collapseExample">
