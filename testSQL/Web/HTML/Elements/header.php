@@ -1,4 +1,4 @@
-<?php require_once("C:/wamp/www/websitePhotos/testSQL/Web/PHP/Users/login.php");
+<?php require_once("../PHP/Users/login.php");
 ?>
 <!DOCTYPE html>
 <!--This is a test for git-->
