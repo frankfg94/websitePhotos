@@ -9,7 +9,7 @@ $dbname = "photosprojet";
  
 //Initialize variables for Database Post Table
 $photoPath = "";
-$uploadDate = date("m.d.y"); 
+$uploadDate = date("d.m.y"); 
 $title = "";
 $location = "";
 $photoId = 10;

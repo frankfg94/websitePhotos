@@ -61,6 +61,12 @@ else
 
 $_SESSION['msgDisconnect'] = "You are now disconnected";
 
+
+if(isset($_POST['saveContact']))
+{
+$_SESSION['feedback'] = "Thanks for your feedback";
+}
+
 // Check button click
 if(isset($_POST['save']))
 {
