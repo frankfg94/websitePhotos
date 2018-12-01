@@ -1,5 +1,5 @@
 <?php
-include("../Users/login.php")
+//include("../PHP/Users/login.php");
 
 //Initialize variables for Database
 $servername = "den1.mysql2.gear.host";

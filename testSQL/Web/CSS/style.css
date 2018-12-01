@@ -1,3 +1,54 @@
+
+
+t
+{
+	font-size: 10px;
+}
+
+p
+{
+	font-size: 10px;
+}
+
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+   height: 10%;
+}
+
+img
+{
+	width: 650px;
+	height: 650px;	
+}
+
+@media screen and (min-height: 800px) {
+	
+img
+{
+	width: 1000px;
+	height: 1000px;	
+}
+	
+}
+
+@media screen and (min-height: 1500px) {
+	
+img
+{
+	width: 2000px;
+	height: 2000px;	
+}
+	
+}
+
+
 @-webkit-keyframes delay {
   0%, 40%, 100% {
     transform: scaleY(0.05);
@@ -169,6 +220,13 @@ test {
   margin: 0 auto;
 }
 
+marquee {
+	hspace: 0; 
+	width: 49.5%;
+	margin: auto;
+	
+}
+
 @media screen and (max-width: 600px) {
     test {
         position: fixed;
@@ -177,6 +235,13 @@ test {
         transform: translate(-50%, -50%);
         margin: 0 auto;
     }
+	
+	marquee {
+		hspace: 0; 
+		width: 48%;
+		margin: auto;
+	
+	}
 }
 
 
