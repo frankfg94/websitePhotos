@@ -31,10 +31,12 @@ if(isset($_POST['save']))
     $photoPath = $_POST['photoPath'];
     $title = $_POST['description'];
     $location = $_POST['location'];
+    if(isset($_POST['imgFilterName']))
+    $filterName = $_POST['imgFilterName'];
 
 
     // Insert Post into the Database
-    $query = "INSERT INTO Post (photoPath, title, uploadDate, location, userId) VALUES ('$photoPath', '$title', '$uploadDate', '$location',  '$userId')";
+    $query = "INSERT INTO Post (photoPath, title, uploadDate, location, userId, filterName) VALUES ('$photoPath', '$title', '$uploadDate', '$location',  '$userId', '$filterName')";
     if(!    $result = mysqli_query($conn, $query))
     {
         echo "Query ERROR .<br>";

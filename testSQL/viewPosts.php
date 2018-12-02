@@ -9,6 +9,7 @@ $result = $conn->query($request);
 <head>
     <title>Picture Post Testing</title>
     <link rel="stylesheet" type="text/css" href="Web/CSS/main.css"/>
+    <link rel="stylesheet" type="text/css" href="Web/CSS/imageFilters.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     <script>
 function fadeInPage() {
@@ -26,6 +27,8 @@ function fadeInPage() {
         linkEl.href = myImage.src;
         clickedAnchor.download=myImage.src;
     }
+
+
         </script>
 </head>
 <body >
@@ -62,7 +65,7 @@ function fadeInPage() {
                  <div class="date"><?php echo $row['uploadDate'] ?> </div>
              </div>
              <div class="card-content">
-                 <img    draggable="false"  ondragstart="return false" src="<?php echo $row['photoPath'] ?>">
+                 <img class="<?php echo $row['filterName'] ?>"   draggable="false"  ondragstart="return false" src="<?php echo $row['photoPath'] ?>">
              </div>
              <div class="card-footer">
                  <div class="description">
@@ -104,6 +107,7 @@ function fadeInPage() {
 				</div>
 			</div>
 			</footer>
-
+<script>
+    </script>
 </body>
 </html>

@@ -32,9 +32,11 @@ if(isset($_GET['del']))
 {
     echo "delete requested";
     $photoId = $_GET['del'];
+    echo "photoId is $photoId";
     mysqli_query($conn, "DELETE FROM Post WHERE photoId=$photoId");
+    
     echo "redirecting...";
-    header('location: ../../../index2.php');
+   header('location: ../../../index2.php');
     // Display notification
     $_SESSION['msg'] ="Post Deleted";
 }

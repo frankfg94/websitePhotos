@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
         <link rel="stylesheet" href="../CSS/designList.css">
+        <link rel="stylesheet" href="../CSS/imageFilters.css">
         <script src="../JS/geolocation.js"></script>
         <script>
 
@@ -24,7 +25,7 @@
 
     function SelectImage()
     {
-    // Start the Select File Dialog
+        // Start the Select File Dialog
         document.getElementById('file-input').click();
   
     }
@@ -182,7 +183,6 @@
             <iframe id="iframeDelPosts" src="../PHP/postList.php"></iframe>
         </div>
         <form method="POST" action="../PHP/CRUD/createCard2.php">
-
             <div id="right" class="card-area-right">
                 <h2>Preview</h2>
                    <div id="createCard" class="card not-bootstrap">        
@@ -193,6 +193,7 @@
                 </div>
                 <div class="profile-info">
                     <div class="name">François Gillioen</div>
+                    <input name="imgFilterName" id="imgFilterName" type="hidden" value="nothing">       
                     <div class="location"><input name="location" type="text" placeholder="Enter the place"></div>
                 </div>
                 <div id="date" class="date"></div>
@@ -212,7 +213,7 @@
             </div>
             </div>
                    <div style="display:none" id="publish-btn" class="btn-group save-btn-card">
-                                    <button type="submit" name="save" data-toggle="modal" data-target="#exampleModal" class="left-part btn btn-success">Publish</button>
+                                    <button type="button" data-toggle="modal" data-target="#exampleModal" class="left-part btn btn-success">Publish</button>
                                     <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
@@ -221,7 +222,7 @@
                                       <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModal" href="#">Save As Template</a>
                                       <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal"  href="#">Save In Album</a>
                                     </div>
-                                  </div>
+                   </div>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -236,28 +237,40 @@
                                         Do you want to save this Post ?
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                            <button  name="save" type="submit" class="btn btn-primary" >Save changes</button>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
-                                        </div>
+                                        </div>  
                                     </div>
                                     </div>
                                 </div>
-                              </form>
-
-            </div>
+                                
+                              </div>
+                            </form>
             <div id="left" class="card-area-left">
                     <div class="big-indexes">
                         <h2>Creating Your Post</h2>
                       <ol>
-                        <li><span>1.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur. Fusce nec leo ut massa viverra venenatis. Nam accumsan libero a elit aliquet quis ullamcorper arcu tincidunt. Praesent purus turpis, consectetur quis congue vel, pulvinar at lorem. Vivamus varius condimentum dolor, quis ultricies ipsum porta quis. </p></li>
-                        <li><span>2.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
+                        <li><span>1.</span><p>Fill in the preview card, the image will be automatically changed once you enter an url inside the input box, and then leave it. </p></li>
+                        <li><span>2.</span><p>You can apply some filters on the image. Choose none, if you don't want to apply any effect on the image  </p></li>
+                        <div class="filter-btns" >
+                        <button onclick="SetImageClass(this.value)" value="0">Saturate</button>
+                        <button onclick="SetImageClass(this.value)" value="1">Grayscale</button>
+                        <button onclick="SetImageClass(this.value)" value="2">Contrast</button>
+                        <button onclick="SetImageClass(this.value)" value="3">Brightness</button>
+                        <button onclick="SetImageClass(this.value)" value="4">Blur</button>
+                        <button onclick="SetImageClass(this.value)" value="5">Invert</button>
+                        <button onclick="SetImageClass(this.value)" value="6">Sepia</button>
+                        <button onclick="SetImageClass(this.value)" value="7">Huerotate</button>
+                        <button onclick="SetImageClass(this.value)" value="8">Opacity</button>
+
+                        </div>
                         <li><span>3.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
                       </ol> 
                     </div>
                     <div  id="bottom" class="card-create-area">
                                  </div>
 
-        <div id="createCard" class="card not-bootstrap">        
+        <div id="createCard" class="card not-bootstrap"> 
             <div class="card-header">
                 <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
                 <div class="profile-image">
@@ -469,6 +482,47 @@
         var input = document.getElementById('photoPathInput');
         img.src = input.value;
         alert('Image changed to : ' + img.src);
+    }
+
+
+    function SetImageClass(value)
+    {
+      var img = document.getElementById('img');
+      var card = document.getElementById('createCard');
+
+      if(card.style.display!="none")
+      {
+        
+      var className="nothing";
+      if(value==0) className = "saturate";
+      else if(value==1) className = "grayscale";
+      else if (value==2) className = "contrast";
+      else if(value==3) className = "brightness";
+      else if (value==4) className = "blur";
+      else if(value==5) className = "invert";
+      else if (value==6) className = "sepia";
+      else if(value==7) className = "huerotate";
+      else if (value==8) className = "opacity";
+      else className=""; // Default className is empty
+
+      // We replace the the default image class by the filter class name
+      img.className = className;
+      var input = document.getElementById('imgFilterName');
+      try
+      {
+        input.value = className;
+
+      }
+      catch(err)
+      {
+        alert(err.message);
+      }
+    } 
+    else 
+    {
+      alert("Click on the create button to start editing images first");
+    }
+
     }
 </script>
 	</body>
