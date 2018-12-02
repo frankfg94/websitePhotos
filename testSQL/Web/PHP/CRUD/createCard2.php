@@ -9,10 +9,9 @@ $dbname = "photosprojet";
  
 //Initialize variables for Database Post Table
 $photoPath = "";
-$uploadDate = date("m.d.y"); 
+$uploadDate = date("d.m.y"); 
 $title = "";
 $location = "";
-$photoId = 10;
 $userId = 0;    
 
 // Create connection
@@ -29,17 +28,18 @@ $results = mysqli_query($conn, "SELECT * FROM Post");
 // Check button click
 if(isset($_POST['save']))
 {
-    $photoPath = "https://www.thesignmaker.co.nz/wp-content/uploads/2018/03/CA4_Work-In-Progress-symbol.jpg";
+    $photoPath = $_POST['photoPath'];
     $title = $_POST['description'];
     $location = $_POST['location'];
 
 
     // Insert Post into the Database
-    $query = "INSERT INTO Post VALUES ('$photoPath', '$title', '$uploadDate', '$location', '$photoId', '$userId')";
+    $query = "INSERT INTO Post (photoPath, title, uploadDate, location, userId) VALUES ('$photoPath', '$title', '$uploadDate', '$location',  '$userId')";
     if(!    $result = mysqli_query($conn, $query))
     {
         echo "Query ERROR .<br>";
-        die($conn->connect_error);  
+        echo "'$photoPath', '$title', '$uploadDate', '$location',  '$userId'<br>";
+        die(mysqli_error($conn));
     }
     else {
 

@@ -187,6 +187,7 @@ header a .fa
   {
     filter: brightness(50%);
   }
+  
 
 .imageDescrText
 {
@@ -197,31 +198,32 @@ header a .fa
   transform: translate(-50%, -50%);
 }
 
-  .card-content img:hover ~ .imageDescrText
-  {
-    display: block;
-    color: white;
-    letter-spacing: 2px;
-    font-size: large;
-  }
-
   .imageDescrText
   {
-    display: none;
-    color: white;
+    display: block;
+    color: black;
     letter-spacing: 2px;
     font-size: large;
   }
-  .imageDescrText:hover ~ img
-  {
-    filter: brightness(50%);
-  } 
 
+   #img:hover ~ .imageDescrText
+   {
+        display: block;
+   }
+
+   .imageDescrText:hover >  input
+   {
+        display: block;
+   }
+
+   .imageDescrText input:hover{
+     display: block;
+   }
 
   .card-footer .description
   {
     margin-right: 20px;
-    width: 100px;
+    width: 100%;
   }
 
   .username
@@ -512,4 +514,21 @@ div.right-side .card-create-area{
   margin: 10%;
   text-align: center;
   background: #FAFAFA;
+}
+
+/* Mainly Use for album cards */
+.top-right-close-btn{ 
+  color: black;
+  font-size: 5px;
+  text-align: center;
+  padding: 0;
+  font-stretch: condensed;
+  background: red;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -5;
+  right: -5;
 }

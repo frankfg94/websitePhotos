@@ -43,7 +43,14 @@
             echo $_SESSION['msg'];
 		?>
         </div>
-        <?php endif ?>
+		<?php endif ?>
+		<?php if(isset($_SESSION['edit'])): ?>
+        <div class="msg">
+            <?php
+            echo $_SESSION['edit'];
+		?>
+        </div>
+		<?php endif ?>
         <?php if(isset($_SESSION['msgErr'])): ?>
         <div class="msgErr">
             <?php

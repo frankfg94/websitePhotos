@@ -49,45 +49,32 @@ function fadeInPage() {
       while($row = $result->fetch_assoc()) 
      {
          ?>
-
-         <form action="./Web/PHP/CRUD/server.php" method="POST">
-            <input type="hidden" name="photoId" value="<?php echo $row['photoId'] ?>">
-                      <div class="card not-bootstrap">        
+         
+         <div class="card not-bootstrap">        
              <div class="card-header">
-             <a href="./Web/PHP/CRUD/server.php?del=<?php echo $row['photoId']; ?>" ><button onclick="this.parentElement.parentElement.parentElement.style.display='none';"   class="remove-post">x</button></a>
                  <div class="profile-image">
-                 <img  draggable="false"  ondragstart="return false"  class="icon" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
+                 <img  draggable="false"   ondragstart="return false"  class="icon" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
                  </div>
                  <div class="profile-info">
                      <div class="name">François Gillioen</div>
-                     <div class="location">
-                         <input type="text" name="location" value=" <?php echo $row['location'] ?>">
-                        </div>
+                     <div class="location"><?php echo $row['location'] ?></div>
                  </div>
-                 <div class="date">
-                        <input style="width:100%" name="date" type="text" value=" <?php echo $row['uploadDate'] ?>">
-                     </div>
+                 <div class="date"><?php echo $row['uploadDate'] ?> </div>
              </div>
              <div class="card-content">
-                 <img draggable="false"  ondragstart="return false" src="<?php echo $row['photoPath'] ?>">
-                 <input name="photoPath" style="width:98%" value="<?php echo $row['photoPath'] ?>">
+                 <img    draggable="false"  ondragstart="return false" src="<?php echo $row['photoPath'] ?>">
              </div>
              <div class="card-footer">
                  <div class="description">
-                 <input name="description" style="width:100%" type="text" value="<?php echo $row['title'] ?>">
+                 <?php echo $row['title'] ?>
                  </div>  
                  <div class="comments">
                      <p><span class="username">François</span>Test de commentaire</p>
                      <p><span class="username">user1234</span>Sympa!</p>
                  </div>
-                 <a href="#" onclick="DownloadImg(event,this)" class="dlBtn" download>Download image</a>
-                     <div>
-                         <button class="save-btn-edit-cards" name="update" type="submit">Save</button>
-                     </div>
+                <a href="#" onclick="DownloadImg(event,this)" class="dlBtn" download>Download image</a>
              </div>
          </div>
-         </form>
-
     <?php   
      }
      ?>
@@ -117,8 +104,6 @@ function fadeInPage() {
 				</div>
 			</div>
 			</footer>
-<script>
 
-</script>
 </body>
 </html>

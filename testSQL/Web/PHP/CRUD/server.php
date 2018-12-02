@@ -11,9 +11,9 @@ $dbname = "photosprojet";
 $photoPath = "";
 $uploadDate = date("d.m.y"); 
 $title = "";
-$location = "";
-$photoId = 10;
+$location = ""; 
 $userId = 0;
+$photoId = -1;
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,22 +22,53 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully". "<br>";
+echo "Connected successfully (server.php)". "<br>";
  
 $results = mysqli_query($conn, "SELECT * FROM Post");
 
+echo "All posts are selected";
 
 if(isset($_GET['del']))
 {
+    echo "delete requested";
     $photoId = $_GET['del'];
     mysqli_query($conn, "DELETE FROM Post WHERE photoId=$photoId");
-    header('location: index.php');
+    echo "redirecting...";
+    header('location: ../../../index2.php');
     // Display notification
     $_SESSION['msg'] ="Post Deleted";
 }
 
+if(isset($_POST['update']))
+{
+    echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+    echo "update requested";
+    $photoId = $_POST['photoId'];
+    $location =  $_POST['location'];
+    $photoPath = $_POST['photoPath'];
+    if(isset($_POST['description']))
+    {
+        $title = $_POST['description'];
+        if(!    $result =    mysqli_query($conn, "UPDATE Post SET location='$location', photoPath='$photoPath', title='$title' WHERE photoId='$photoId'")        )
+        {
+            echo "Query Error";
+            die(mysqli_error($conn));
+        }
+        else {
+            echo "<br>location='$location', photoPath='$photoPath', title='$title' WHERE photoId='$photoId'<br>";
+            echo "Query DONE !";
+            header('location: ../../../index2.php');
+            $_SESSION["edit"] = "Post Edited";
+        }
 
-// Check button click
+    }
+
+}
+
+
+// Check  click
 if(isset($_POST['save']))
 {
     $photoPath = $_POST['photoPath'];
@@ -46,7 +77,7 @@ if(isset($_POST['save']))
 
 
     // Insert Post into the Database
-    $query = "INSERT INTO Post VALUES ('$photoPath', '$title', '$uploadDate', '$location', '$photoId', '$userId')";
+    $query = "INSERT INTO Post (photoPath, title, uploadDate, location) VALUES ('$photoPath', '$title', '$uploadDate', '$location', '$photoId')";
     if(!    $result = mysqli_query($conn, $query))
     {
         die($conn->connect_error);  

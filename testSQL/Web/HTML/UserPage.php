@@ -20,6 +20,8 @@
         <script src="../JS/geolocation.js"></script>
         <script>
 
+
+
     function SelectImage()
     {
     // Start the Select File Dialog
@@ -144,8 +146,8 @@
                     </a>
             <div id="collapseExample" class="collapse">
             <button class="animated zoomIn faster createCard" onclick="ShowCardCreator()" >Create</button>
-            <a style="color:rgb(59, 59, 59);" href="../../index2.php"><button class="editCard animated zoomIn fast">Edit</button></a>
-           <a  href="../PHP/CRUD/index.php" > <button class="animated zoomIn " onclick="ShowDeletablePostList()" class="deleteCard">Delete</button></a>
+            <a style="color:rgb(59, 59, 59);" href="../../viewPosts.php"><button class="editCard animated zoomIn fast">View</button></a>
+           <a  href="../../index2.php" > <button class="animated zoomIn " onclick="ShowDeletablePostList()" class="deleteCard">Delete / Edit</button></a>
             </div>
         </div>
         </div>
@@ -160,7 +162,7 @@
                     <button  class="animated zoomIn faster editCard">Create</button>
                 </a>
             <button  onclick="hideDivs()"  class="animated zoomIn fast editCard">Edit</button>
-            <button   class="animated zoomIn  editCard">Delete</button>
+            <button   class="animated zoomIn  editCard">Delete / Edit</button>
         </div>
     </div>
 </div>
@@ -198,7 +200,7 @@
             <div class="card-content">
                 <input name="file-input" id="file-input" onchange="LoadImg()" type="file" name="name" accept="image/*" style="display: none;" />
                 <img  alt="" id="img" draggable="false"  ondragstart="return false"   onclick="SelectImage()" src="http://www.kensap.org/wp-content/uploads/empty-photo.jpg">
-                <div class="imageDescrText">Change Image</div>
+                <div class="imageDescrText"><input onchange="PreviewNewImg()" name="photoPath" id="photoPathInput"></div>
             </div>
             <div class="card-footer">
                 <div class="description">
@@ -301,10 +303,11 @@
       
             <div  class="album py-5 bg-light">
               <div class="container">
-      
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
+                    <div class="card mb-4 box-shadow" style="position:relative">
+                            <button type="button" class="top-right-close-btn">X</button>
+
                       <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
                       <div class="card-body">
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -459,7 +462,15 @@
 </div>
 
             <?php include("Elements/footer.html"); ?>
-
+<script>
+        function PreviewNewImg()
+    {
+        var img = document.getElementById('img');
+        var input = document.getElementById('photoPathInput');
+        img.src = input.value;
+        alert('Image changed to : ' + img.src);
+    }
+</script>
 	</body>
 	
 	<!--footer part-->
