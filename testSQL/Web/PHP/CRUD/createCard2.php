@@ -1,3 +1,4 @@
+<?php include("../Users/login.php"); ?>
 <?php
 
 
@@ -9,10 +10,11 @@ $dbname = "photosprojet";
  
 //Initialize variables for Database Post Table
 $photoPath = "";
-$uploadDate = date("d.m.y"); 
+$uploadDate = date("y.d.m"); 
 $title = "";
 $location = "";
-$userId = 0;    
+$userId = $_SESSION['userId'];    
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -42,16 +44,17 @@ if(isset($_POST['save']))
         echo "Query ERROR .<br>";
         echo "'$photoPath', '$title', '$uploadDate', '$location',  '$userId'<br>";
         die(mysqli_error($conn));
+        exit();
     }
     else {
 
         echo "Post is now created ! ";
-        
+        exit();
         // Redirect to index page
         header('location: ../../HTML/userPage.php');
         // Display notification
         $_SESSION['msg'] ="Post created";
-        
+        exit();
     }
 
 }

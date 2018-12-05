@@ -17,10 +17,10 @@
 	
 	<body>
 	<?php include_once("../PHP/CRUD/createFeedback.php"); ?>
-	<?php if(isset($_SESSION['feedback'])): ?>
+	<?php if(isset($_SESSION['mailSent'])): ?>
         <div class="msg">
             <?php
-            echo $_SESSION['feedback'];
+            echo $_SESSION['mailSent'];
 		?>
         </div>
         <?php endif ?>
@@ -33,7 +33,6 @@
 			<textarea name="message" required maxlength="2500" placeholder="Your Message" class="inputMsg"></textarea>
 			<input type="submit" name="saveContact" value="Submit">
 	</form>
-	
 	<!--footer part-->
 	<?php include("Elements/footer.html"); ?>
 

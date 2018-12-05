@@ -62,6 +62,7 @@ function fadeInPage() {
                      <div class="name">François Gillioen</div>
                      <div class="location"><?php echo $row['location'] ?></div>
                  </div>
+                 <div class="date"> { <?php echo $row['photoId'] ?> } </div>
                  <div class="date"><?php echo $row['uploadDate'] ?> </div>
              </div>
              <div class="card-content">

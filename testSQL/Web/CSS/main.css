@@ -453,7 +453,8 @@ background-color: #ebebeb;
 }
 
 div.right-side{
-  background: red;
+ /* background: red;*/
+
   width: 80%;
   display: block;
   float: right;
@@ -462,7 +463,7 @@ div.right-side{
 div.leftProfileMenu{
   float:left;
   display: block;
-  background: blue;
+  /*background: blue;*/
   border: #111 1px solid;
   border-radius: 4px;
   width: 20%;
@@ -470,21 +471,21 @@ div.leftProfileMenu{
 }
 
 div.right-side .card-area-left{
-  background: rgb(181, 0, 226);
+  /*background: rgb(181, 0, 226);*/
   display: block;
   width: 50%;
   float: left;
 }
 
 div.right-side .card-area-right{
-  background: rgb(0, 207, 104);
+/*  background: rgb(0, 207, 104);*/
   display: block;
   width: 50%;
   float: right;
 }
 div.right-side .card-create-area{
   display:block;
-  background: rgb(11, 110, 175);
+ /* background: rgb(11, 110, 175); */
   float: left;
   height: 214px;
   width: 100%;
@@ -523,7 +524,7 @@ div.right-side .card-create-area{
   text-align: center;
   padding: 0;
   font-stretch: condensed;
-  background: red;
+/*  background: red; */
   border: none;
   border-radius: 50%;
   position: absolute;

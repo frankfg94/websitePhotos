@@ -39,15 +39,16 @@ if(isset($_POST['saveContact']))
     if(!    $result = mysqli_query($conn, $query))
     {
         echo "Query ERROR.<br>";
-        die($conn->connect_error);  
+        die($conn->connect_error); 
     }
     else {
-        echo "Feedback sent ! ";
         // Redirect to index page
         header('location: ../../HTML/Contact.php');
-        
+
+        echo "Feedback sent ! ";
         // Display notification
-        $_SESSION['msg'] ="Thanks for your Feedback";
+        $_SESSION['mailSent'] ="Thanks for your Feedback";
+        echo "Thanks for your Feedback";
     }
 
 }

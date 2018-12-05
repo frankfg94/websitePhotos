@@ -1,5 +1,6 @@
-<?php include_once("Elements/header.php"); ?>
+<?php include("../PHP/Users/login.php");?>
 
+<?php include_once("Elements/headerSimple.php"); ?>
 
 <!DOCTYPE html>
 <html lang ="en">
@@ -120,11 +121,17 @@
         <div class="card-profile-navbar"> 
             <div >
               <div >
-                    <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
-
-                <img height="130px" width="100%" src="https://www.muralswallpaper.com/app/uploads/Autumn-Forest-Plain.jpg"></img>
+                <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="<?php echo $_SESSION['profileImage']?>">
+                <img height="130px" width="100%" src="<?php echo $_SESSION['profileImageBg']?>"></img>
                 </div>
-                <h3>Gillioen François</h3> 
+              
+                <h3>	<?php if(isset($_SESSION['name'])): ?>
+        <div >
+            <?php
+            echo $_SESSION['name'];
+		?>
+        </div>
+		<?php endif ?></h3> 
             </div>
         </div>
 
@@ -189,10 +196,10 @@
             <div class="card-header">
                 <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
                 <div class="profile-image">
-                    <img alt="François's User Icon" draggable="false"   ondragstart="return false"  class="icon" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
+                    <img alt="User Icon" draggable="false" ondragstart="return false"  class="icon" src="<?php echo $_SESSION['profileImage']?>"></img>
                 </div>
                 <div class="profile-info">
-                    <div class="name">François Gillioen</div>
+                    <div class="name"><h3>  <?php echo $_SESSION['name']?></h3></div>
                     <input name="imgFilterName" id="imgFilterName" type="hidden" value="nothing">       
                     <div class="location"><input name="location" type="text" placeholder="Enter the place"></div>
                 </div>
@@ -200,7 +207,7 @@
             </div>
             <div class="card-content">
                 <input name="file-input" id="file-input" onchange="LoadImg()" type="file" name="name" accept="image/*" style="display: none;" />
-                <img  alt="" id="img" draggable="false"  ondragstart="return false"   onclick="SelectImage()" src="http://www.kensap.org/wp-content/uploads/empty-photo.jpg">
+                <img  alt="Card Creation Image" id="img" draggable="false"  ondragstart="return false"   onclick="SelectImage()" src="http://www.kensap.org/wp-content/uploads/empty-photo.jpg">
                 <div class="imageDescrText"><input onchange="PreviewNewImg()" name="photoPath" id="photoPathInput"></div>
             </div>
             <div class="card-footer">
@@ -252,17 +259,16 @@
                       <ol>
                         <li><span>1.</span><p>Fill in the preview card, the image will be automatically changed once you enter an url inside the input box, and then leave it. </p></li>
                         <li><span>2.</span><p>You can apply some filters on the image. Choose none, if you don't want to apply any effect on the image  </p></li>
-                        <div class="filter-btns" >
-                        <button onclick="SetImageClass(this.value)" value="0">Saturate</button>
-                        <button onclick="SetImageClass(this.value)" value="1">Grayscale</button>
-                        <button onclick="SetImageClass(this.value)" value="2">Contrast</button>
-                        <button onclick="SetImageClass(this.value)" value="3">Brightness</button>
-                        <button onclick="SetImageClass(this.value)" value="4">Blur</button>
-                        <button onclick="SetImageClass(this.value)" value="5">Invert</button>
-                        <button onclick="SetImageClass(this.value)" value="6">Sepia</button>
-                        <button onclick="SetImageClass(this.value)" value="7">Huerotate</button>
-                        <button onclick="SetImageClass(this.value)" value="8">Opacity</button>
-
+                        <div id="div-filters" class="filter-btns" >
+                        <button onclick="SetImageClass(this.value)" class="saturate" value="0"></button><p>Saturate</p>
+                        <button onclick="SetImageClass(this.value)" class="grayscale" value="1"></button><p>Grayscale</p>
+                        <button onclick="SetImageClass(this.value)" class="contrast" value="2"></button><p>Contrast</p>
+                        <button onclick="SetImageClass(this.value)" class="brightness" value="3"></button><p>Brightness</p>
+                        <button onclick="SetImageClass(this.value)" class="blur" value="4"></button><p>Blur</p>
+                        <button onclick="SetImageClass(this.value)" class="invert" value="5"></button><p>Invert</p>
+                        <button onclick="SetImageClass(this.value)" class="sepia" value="6"></button><p>Sepia</p>
+                        <button onclick="SetImageClass(this.value)" class="huerotate" value="7"></button><p>Huerotate</p>
+                        <button onclick="SetImageClass(this.value)" class="rss.opacity" value="8"></button><p>Opacity</p>
                         </div>
                         <li><span>3.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
                       </ol> 
@@ -274,10 +280,10 @@
             <div class="card-header">
                 <button onclick="this.parentElement.parentElement.style.display='none';"   class="remove-post">x</button>
                 <div class="profile-image">
-                    <img alt="François's User Icon" draggable="false"   ondragstart="return false"  class="icon" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
+                    <img alt="François's User Icon" draggable="false"   ondragstart="return false"  class="icon" src="<?php echo $_SESSION['profileImage']?>">
                 </div>
                 <div class="profile-info">
-                    <div class="name">François Gillioen</div>
+                    <div class="name"><?php echo $_SESSION["name"]?></div>
                     <div class="location"><input type="text" placeholder="Enter the place"></div>
                 </div>
                 <div id="date" class="date"></div>
@@ -476,14 +482,64 @@
 
             <?php include("Elements/footer.html"); ?>
 <script>
+
+// Examine if the image will have distortion
+  function examineSize(url){   
+    var img = new Image();
+    img.addEventListener("load", function(){
+        alert( this.naturalWidth +' '+ this.naturalHeight );
+        if(img.naturalWidth >= 2 * img.naturalHeight)
+        {
+          alert("Warning : High level of Image Distortion, choose an image with a better height:width ratio to have more visual fidelity");
+        }
+    });
+    img.src = url;
+}
+
         function PreviewNewImg()
     {
         var img = document.getElementById('img');
         var input = document.getElementById('photoPathInput');
         img.src = input.value;
-        alert('Image changed to : ' + img.src);
+        SyncButtonsWithImg(img.src);
+        examineSize(img.src);
+        
     }
 
+// This methods display the big card image on each image filter effect button
+    function SyncButtonsWithImg(th)
+    {
+
+
+      try
+      {
+      var buttonsDiv = document.getElementById('div-filters');
+      var buttons = buttonsDiv.childNodes;
+      var i;
+      var string = "";
+      for( i = 0; i < buttons.length;i++)
+      {
+        if(buttons[i].nodeType == document.ELEMENT_NODE)
+        {
+          if(buttons[i].tagName == "BUTTON")
+          {
+        // update image
+        buttons[i].style.background = "url("+th+")";
+        // center and resize image
+        buttons[i].style.backgroundSize="90px";
+        string += buttons[i].innerHTML + "\n";
+          }
+        }
+      }
+
+      }
+      catch(ex)
+      {
+
+        alert("This is not an url for an Image path");
+      }
+
+    }
 
     function SetImageClass(value)
     {
@@ -524,6 +580,12 @@
     }
 
     }
+
+    var image = document.getElementById('img');
+    image.onerror = function () {
+  alert('Error Loading Image, please verify image path or enter an another one');
+  this.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpFYiKzm6NnJPx8sbkKnFEu4xY8NrrMRxu5crfOvtG9ITPKA-LcQ'; // place your error.png image instead
+};
 </script>
 	</body>
 	
