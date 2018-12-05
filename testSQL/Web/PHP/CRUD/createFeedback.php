@@ -1,5 +1,5 @@
 <?php
-
+//include("../PHP/Users/login.php");
 
 //Initialize variables for Database
 $servername = "den1.mysql2.gear.host";
@@ -27,7 +27,7 @@ echo "Connected successfully (createFeedback.php)". "<br>";
 $results = mysqli_query($conn, "SELECT * FROM Feedback");
 
 // Check button click
-if(isset($_POST['save']))
+if(isset($_POST['saveContact']))
 {
     $from = $_POST['from'];
     $name = $_POST['name'];
@@ -39,14 +39,16 @@ if(isset($_POST['save']))
     if(!    $result = mysqli_query($conn, $query))
     {
         echo "Query ERROR.<br>";
-        die($conn->connect_error);  
+        die($conn->connect_error); 
     }
     else {
-        echo "Feedback sent ! ";
         // Redirect to index page
         header('location: ../../HTML/Contact.php');
+
+        echo "Feedback sent ! ";
         // Display notification
-        $_SESSION['msg'] ="Thanks for your Feedback";
+        $_SESSION['mailSent'] ="Thanks for your Feedback";
+        echo "Thanks for your Feedback";
     }
 
 }

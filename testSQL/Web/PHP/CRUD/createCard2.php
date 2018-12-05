@@ -1,3 +1,4 @@
+<?php include("../Users/login.php"); ?>
 <?php
 
 
@@ -9,11 +10,11 @@ $dbname = "photosprojet";
  
 //Initialize variables for Database Post Table
 $photoPath = "";
-$uploadDate = date("m.d.y"); 
+$uploadDate = date("y.d.m"); 
 $title = "";
 $location = "";
-$photoId = 10;
-$userId = 0;    
+$userId = $_SESSION['userId'];    
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,27 +30,31 @@ $results = mysqli_query($conn, "SELECT * FROM Post");
 // Check button click
 if(isset($_POST['save']))
 {
-    $photoPath = "https://www.thesignmaker.co.nz/wp-content/uploads/2018/03/CA4_Work-In-Progress-symbol.jpg";
+    $photoPath = $_POST['photoPath'];
     $title = $_POST['description'];
     $location = $_POST['location'];
+    if(isset($_POST['imgFilterName']))
+    $filterName = $_POST['imgFilterName'];
 
 
     // Insert Post into the Database
-    $query = "INSERT INTO Post VALUES ('$photoPath', '$title', '$uploadDate', '$location', '$photoId', '$userId')";
+    $query = "INSERT INTO Post (photoPath, title, uploadDate, location, userId, filterName) VALUES ('$photoPath', '$title', '$uploadDate', '$location',  '$userId', '$filterName')";
     if(!    $result = mysqli_query($conn, $query))
     {
         echo "Query ERROR .<br>";
-        die($conn->connect_error);  
+        echo "'$photoPath', '$title', '$uploadDate', '$location',  '$userId'<br>";
+        die(mysqli_error($conn));
+        exit();
     }
     else {
 
         echo "Post is now created ! ";
-        
+        exit();
         // Redirect to index page
         header('location: ../../HTML/userPage.php');
         // Display notification
         $_SESSION['msg'] ="Post created";
-        
+        exit();
     }
 
 }

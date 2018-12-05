@@ -9,8 +9,8 @@ $result = $conn->query($request);
 <head>
     <title>Picture Post Testing</title>
     <link rel="stylesheet" type="text/css" href="Web/CSS/main.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     <link rel="stylesheet" type="text/css" href="Web/CSS/imageFilters.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     <script>
 function fadeInPage() {
     if (!window.AnimationEvent) { return; }
@@ -19,7 +19,7 @@ function fadeInPage() {
 }
 
 
-    function DownloadImg(event,linkEl)
+            function DownloadImg(event,linkEl)
     {
         var clickedAnchor = event.target;
         var myDiv = clickedAnchor.parentNode.parentNode;
@@ -29,28 +29,9 @@ function fadeInPage() {
     }
 
 
-
-    function ApplyFilter(value, img)
-        {
-     var className = "";
-            alert("Function start !");  
-            if(value==0) className = "saturate";
-      else if(value==1) className = "grayscale";
-      else if (value==2) className = "contrast";
-      else if(value==3) className = "brightness";
-      else if (value==4) className = "blur";
-      else if(value==5) className = "invert";
-      else if (value==6) className = "sepia";
-      else if(value==7) className = "huerotate";
-      else if (value==8) className = "opacity";
-      else className=""; // Default className is empty
-
-      img.className = className;
-        }
         </script>
 </head>
 <body >
-
         <svg id="fader"></svg>
         <script>
             fadeInPage();
@@ -70,52 +51,34 @@ function fadeInPage() {
     <?php
       while($row = $result->fetch_assoc()) 
      {
-        $userId = $row['userId'];
-        $requestUser="SELECT * FROM User WHERE userId=$userId"; // User Associated for each different Post
-        $result2 = $conn->query($requestUser);
-        $resultUser = $result2->fetch_assoc();
-
-        ?>
-         <form action="./Web/PHP/CRUD/server.php" method="POST">
-            <input type="hidden" name="photoId" value="<?php echo $row['photoId'] ?>">
-
-                      <div class="card not-bootstrap">        
+         ?>
+         
+         <div class="card not-bootstrap">        
              <div class="card-header">
-             <a href="./Web/PHP/CRUD/server.php?del=<?php echo $row['photoId']; ?>" ><button type="button" onclick="this.parentElement.parentElement.parentElement.style.display='none';"   class="remove-post">x</button></a>
                  <div class="profile-image">
-                 <img  draggable="false"  ondragstart="return false"  class="icon" src="<?php echo $resultUser['profileImage']?>">
+                 <img  draggable="false"   ondragstart="return false"  class="icon" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
                  </div>
                  <div class="profile-info">
-                     <div class="name"><?php echo $resultUser['name']; ?></div>
-                     <div class="location">
-                         <input type="text" name="location" value=" <?php echo $row['location'] ?>">
-                        </div>
+                     <div class="name">François Gillioen</div>
+                     <div class="location"><?php echo $row['location'] ?></div>
                  </div>
-                 <div class="date">
-                        <input style="width:100%" name="date" type="text" value=" <?php echo $row['uploadDate'] ?>">
-                     </div>
+                 <div class="date"> { <?php echo $row['photoId'] ?> } </div>
+                 <div class="date"><?php echo $row['uploadDate'] ?> </div>
              </div>
              <div class="card-content">
-                 <img id="img"  draggable="false" class="<?php echo $row['filterName'] ?>" ondragstart="return false" src="<?php echo $row['photoPath'] ?>">
-                 <input name="photoPath" style="width:98%" value="<?php echo $row['photoPath'] ?>">
+                 <img class="<?php echo $row['filterName'] ?>"   draggable="false"  ondragstart="return false" src="<?php echo $row['photoPath'] ?>">
              </div>
              <div class="card-footer">
                  <div class="description">
-                 <input name="description" style="width:100%" type="text" value="<?php echo $row['title'] ?>">
+                 <?php echo $row['title'] ?>
                  </div>  
                  <div class="comments">
                      <p><span class="username">François</span>Test de commentaire</p>
                      <p><span class="username">user1234</span>Sympa!</p>
                  </div>
-                 <a href="#" onclick="DownloadImg(event,this)" class="dlBtn" download>Download image</a>
-                     <div>
-                         <button class="save-btn-edit-cards" name="update" type="submit">Save</button>
-                     </div>
+                <a href="#" onclick="DownloadImg(event,this)" class="dlBtn" download>Download image</a>
              </div>
          </div>
-
-        </form>
-
     <?php   
      }
      ?>
@@ -145,6 +108,7 @@ function fadeInPage() {
 				</div>
 			</div>
 			</footer>
-
+<script>
+    </script>
 </body>
 </html>

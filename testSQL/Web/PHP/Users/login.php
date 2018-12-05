@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+
+
 //Initialize variables for Database
 $servername = "den1.mysql2.gear.host";
 $username = "photosprojet";
@@ -22,9 +25,9 @@ echo "Connected successfully to database". "<br>";
 $password = "";
 $name = "";
 $connected = "";
+$profileImage = "";
+$profileImageBg = "";
 
-
-session_start();
     
 /*
 echo basename($_SERVER["SCRIPT_FILENAME"]) ."<br>";
@@ -61,6 +64,12 @@ else
 
 $_SESSION['msgDisconnect'] = "You are now disconnected";
 
+
+if(isset($_POST['saveContact']))
+{
+$_SESSION['feedback'] = "Thanks for your feedback";
+}
+
 // Check button click
 if(isset($_POST['save']))
 {
@@ -94,6 +103,12 @@ if(isset($_POST['save']))
                 // Display notification
                 $_SESSION['msg'] ="Success! You are now connected as $name";
                 $_SESSION['connected'] = "Connected as $name !";
+                $_SESSION['name'] = "$name";
+                $_SESSION['profileImage'] = $row['profileImage'];
+                $_SESSION['profileImageBg'] = $row['profileImageBg'];
+                $_SESSION['userId'] = $row['userId'];
+
+
                 echo  $_SESSION['msg'];
                 echo $_SESSION['connected'];
             }

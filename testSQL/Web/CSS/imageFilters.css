@@ -1,0 +1,29 @@
+.saturate { filter: saturate(3); }
+.grayscale { filter: grayscale(100%); }
+.contrast { filter: contrast(160%); }
+.brightness { filter: brightness(0.25); }
+.blur { filter: blur(3px); }
+.invert { filter: invert(100%); }
+.sepia { filter: sepia(100%); }
+.huerotate { filter: hue-rotate(180deg); }
+.rss.opacity { filter: opacity(50%); }
+
+.filter-btns
+{
+    /*background: blue;*/
+}
+
+.filter-btns button{
+    color: rgb(49, 49, 49);
+    border-radius: 50%;
+    border: none;
+    height: 90px;
+    width: 90px;
+    background: url("https://www.freeiconspng.com/uploads/no-image-icon-6.png");
+    background-size: 90px;
+}
+
+.filter-btns p{
+    padding-left:10px;
+    color: rgb(77, 77, 77);
+}

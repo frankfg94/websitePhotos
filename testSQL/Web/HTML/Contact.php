@@ -17,7 +17,13 @@
 	
 	<body>
 	<?php include_once("../PHP/CRUD/createFeedback.php"); ?>
-
+	<?php if(isset($_SESSION['mailSent'])): ?>
+        <div class="msg">
+            <?php
+            echo $_SESSION['mailSent'];
+		?>
+        </div>
+        <?php endif ?>
 	<form class="form" method="POST" action="../PHP/CRUD/createFeedback.php">
 			<h1 class="animated fadeInLeft faster">Send us your feedback</h1>
 			<h3 style="color:rgb(63, 63, 63)">Don't hesitate to tell us what you think of our website!</h3>
@@ -25,9 +31,8 @@
 			<input name="name" required type="text" placeholder="Name" class="inputFirstName">
 			<input name="subject" required type="text" placeholder="Subject" class="inputLastName">
 			<textarea name="message" required maxlength="2500" placeholder="Your Message" class="inputMsg"></textarea>
-			<input type="submit" name="save" value="Submit">
+			<input type="submit" name="saveContact" value="Submit">
 	</form>
-	
 	<!--footer part-->
 	<?php include("Elements/footer.html"); ?>
 

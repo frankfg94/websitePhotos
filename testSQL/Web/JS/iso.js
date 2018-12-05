@@ -1,6 +1,32 @@
 // external js: isotope.pkgd.js
 
 
+function myFunction() {
+    var input, filter, div, li, a, i, txtValue;
+	
+    input = document.getElementById("myInput");
+	
+    filter = input.value.toUpperCase();
+	
+    ul = document.getElementById("myUL");
+	
+    li = ul.getElementsByTagName("div");
+	
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("country")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        } else {
+			
+            li[i].style.display = "none";
+        }
+    }
+	
+	
+	
+}
+
+
 // init Isotope
 var $grid = $('.grid').isotope({
   itemSelector: '.element-item',
@@ -17,7 +43,23 @@ var $grid = $('.grid').isotope({
 
 // filter functions
 var filterFns = {
-
+  lastYear: function() {
+    var date = $(this).find('.date').text();
+	var today = "2018-01-01";
+	 if (date>=today)
+	 {
+		 return date;
+	 }
+  },
+  
+  lastMonth: function() {
+    var date = $(this).find('.date').text();
+	var today = "2018-11-01";
+	 if (date>=today)
+	 {
+		 return date;
+	 }
+  },
 
 };
 
