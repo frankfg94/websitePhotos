@@ -67,7 +67,6 @@ function fadeInPage() {
     </header>
     <section class="container">
         <h1 id="mainTitle">Pictures in our database</h1>
-        <a href="Web/HTML/home.php">Nouvelle Page</a>;
         <?php if(isset($_SESSION['edit'])): ?>
 
 <div class="msg">

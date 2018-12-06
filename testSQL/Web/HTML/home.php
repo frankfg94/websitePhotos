@@ -1,6 +1,6 @@
 <?php
-include_once("C:/wamp/www/websitePhotos/testSQL/Web/PHP/connectToMySql.php");
-include("C:/wamp/www/websitePhotos/testSQL/Web/PHP/Users/login.php");
+include_once("../PHP/connectToMySql.php");
+include("../PHP/Users/login.php");
 $request="select * from Post";
 $result = $conn->query($request); // Popular posts
 
@@ -14,7 +14,7 @@ $result2 = $conn->query($request2); // Recents posts
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Esigetel Picture Studio</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
