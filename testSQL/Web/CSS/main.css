@@ -533,3 +533,8 @@ div.right-side .card-create-area{
   top: -5;
   right: -5;
 }
+
+#welcome-guest{
+  text-align: center;
+  margin: 40px;
+}

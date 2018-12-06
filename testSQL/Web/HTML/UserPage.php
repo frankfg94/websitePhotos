@@ -46,8 +46,12 @@ unset($_SESSION['cardCreate']);
 
 
   
-
+  <?php if(isset($_SESSION['connected'])): ?>
     <h1 class="profile-intro-title">Welcome to your profile</h1>
+    <?php else : ?>
+    <h1 class="profile-intro-title">Welcome Guest !</h1>
+
+    <?php endif ?>
     <div>
       <!--Accordion Menu-->
       <div id="accordionExample" class="accordion leftProfileMenu animated fadeInLeft faster" >
@@ -64,7 +68,8 @@ unset($_SESSION['cardCreate']);
                   <?php
                   if(isset($_SESSION['connected'])): 
                   echo $_SESSION['name'];
-                  else : echo "No User";  ?>
+                  else : echo "Guest User";  ?>
+
                   <?php endif ?>
                   </h3> 
                  </div>
@@ -90,9 +95,13 @@ unset($_SESSION['cardCreate']);
             <h1>My Posts</h1>
           </a>
           <div id="collapseExample" class="collapse">
+          <?php if(isset($_SESSION['connected'])): ?>
             <button class="animated zoomIn faster createCard" onclick="ShowCardCreator()" >Create</button>
+            <?php endif ?>
             <a style="color:rgb(59, 59, 59);" href="../../viewPosts.php"><button class="editCard animated zoomIn fast">View</button></a>
+            <?php if(isset($_SESSION['connected'])): ?>
             <a  href="../../index2.php" > <button class="animated zoomIn " onclick="ShowDeletablePostList()" class="deleteCard">Delete / Edit</button></a>
+            <?php endif ?>
           </div>
         </div>
       </div>
@@ -104,9 +113,13 @@ unset($_SESSION['cardCreate']);
             <h1 >My Albums</h1>
           </a>
           <div id="collapse2" class="collapse">
+          <?php if(isset($_SESSION['connected'])): ?>
             <button onclick="showAlbums()" class="animated zoomIn faster editCard">Create</button>
+            <?php endif?>
             <a href="viewAlbum.php"><button class="animated zoomIn fast editCard">View</button></a>
+            <?php if(isset($_SESSION['connected'])): ?>
             <button class="animated zoomIn  editCard" onclick="step2()">Delete / Edit</button>
+            <?php endif?>
           </div>
         </div>
       </div>
@@ -154,7 +167,6 @@ unset($_SESSION['cardCreate']);
                     <input name="description" type="text" placeholder="Enter the description of the image">
                 </div>  
                 <div class="comments">
-                    <p><span class="username">Comment Area</span>Here will be added your future comments</p>
                 </div>
               </div>
             </div>
@@ -191,9 +203,14 @@ unset($_SESSION['cardCreate']);
             </div>
           </div>
         </form>
-
+            <?php  if(!isset($_SESSION['connected'])): ?>
+            <div class="right-side">
+           <h4 id="welcome-guest">You can browse the posts or albums, an account is required to create and delete them.</h4>
+           </div>
+  <?php endif ?>
         <div id="left" class="card-area-left">
                 <div class="big-indexes">
+                  
                     <h2>Creating Your Post</h2>
                   <ol>
                     <li><span>1.</span><p>Fill in the preview card, the image will be automatically changed once you enter an url inside the input box, and then leave it. </p></li>
@@ -211,6 +228,7 @@ unset($_SESSION['cardCreate']);
                     </div>
                   </ol> 
                 </div>
+
         </div>
 
         <div id="createCard" class="card not-bootstrap"> 
@@ -535,7 +553,7 @@ unset($_SESSION['cardCreate']);
       var step1 = document.getElementById("step1");
       var step2 = document.getElementById("step2");
 
-      left.style.display="block";
+      left.style.display="none";
       right.style.display="none";
       filters.style.display="none";
 
@@ -546,6 +564,8 @@ unset($_SESSION['cardCreate']);
       "July", "August", "September", "October", "November", "December"];
       const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
       "Sunday"];
+
+      
 
       const d = new Date();
       document.getElementById("date").innerHTML = dayNames[d.getDay()]  + " " +d.getDate() +" "+monthNames[d.getMonth()];

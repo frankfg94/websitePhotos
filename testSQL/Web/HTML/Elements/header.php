@@ -27,14 +27,7 @@ $userN = $name?>
 			<a href="connection.php"> <i class="fa fa-plug"  aria-hidden="true"> </i><h3>Connection</h3></a>
     <?php endif ?>
 		</header>
-		<?php if(isset($_SESSION['connected'])): ?>
-
-		        <div class="msg">
-            <?php
-			echo $_SESSION['connected'];
-            ?>
-		</div>
-		<?php endif ?>
+		
 
 		<?php if(isset($_SESSION['msg'])): ?>
         <div class="msg">
