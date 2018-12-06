@@ -59,11 +59,17 @@ function fadeInPage() {
         </script>
    <header>
        
-            <a href="index.php">    <i class="fa fa-home" aria-hidden="true"></i><h3>Home</h3></a>
-            <a href="Web/HTML/search.php"> <i class="fa fa-search" aria-hidden="true"></i><h3>Search</h3></a>
-            <a href="Web/HTML/UserPage.php"><i class="fa fa-user-o" aria-hidden="true"></i><h3>Profile</h3></a>
-            <a href="Web/HTML/goodPlans.php"> <i class="fa fa-bomb" aria-hidden="true"></i><h3>Good Plans</h3></a>
-            <a href="Web/HTML/Contact.php"> <i class="fa fa-envelope"  aria-hidden="true"> </i><h3>Contact</h3></a>
+            
+   <a href="home.php">    <i class="fa fa-home" aria-hidden="true"></i><h3>Home</h3></a>
+			<a href="Web/HTML/iso.php"> <i class="fa fa-search" aria-hidden="true"></i><h3>Search</h3></a>
+			<a href="Web/HTML/UserPage.php"><i class="fa fa-user-o" aria-hidden="true"></i><h3>Profile</h3></a>
+			<a href="Web/HTML/goodPlans.php"> <i class="fa fa-bomb" aria-hidden="true"></i><h3>Plans</h3></a>
+			<a href="Web/HTML/Contact.php"> <i class="fa fa-envelope"  aria-hidden="true"> </i><h3>Feedback</h3></a>
+			<?php if(isset($_SESSION['connected'])): ?>
+        	<a href="connection.php"> <i class="fa fa-power-off"  aria-hidden="true"> </i><h3>Disconnect</h3></a>
+<?php else: ?>
+			<a href="connection.php"> <i class="fa fa-plug"  aria-hidden="true"> </i><h3>Connection</h3></a>
+    <?php endif ?>
     </header>
     <section class="container">
         <h1 id="mainTitle">Pictures in our database</h1>
@@ -116,7 +122,7 @@ unset($_SESSION['edit']);
                      <p><span class="username">François</span>Test de commentaire</p>
                      <p><span class="username">user1234</span>Sympa!</p>
                  </div>
-                 <a href="#" onclick="DownloadImg(event,this)" class="dlBtn" download>Download image</a>
+                 <a href="#" onclick="DownloadImg(event,this)" class="dlBtn" download>Go FullScreen</a>
                      <div>
                          <button class="save-btn-edit-cards" name="update" type="submit">Save</button>
                      </div>

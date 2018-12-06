@@ -239,6 +239,13 @@ header a .fa
     position: relative;
   }
 
+  .icon-big{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    position: relative;
+  }
+
   .icon-center-div{
     border-radius: 50%;
     border: 3px solid gray;
