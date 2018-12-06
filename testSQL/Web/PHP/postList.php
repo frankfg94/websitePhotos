@@ -46,7 +46,7 @@ function AskDeletion(event)
                         </div>
                         <br>
                         <div>
-                           <img class="listImg" src="<?php echo $row['photoPath'] ?>"></img>
+                           <img class="listImg" src="<?php echo $row['photoPath'] ?>">
                         <?php 
                         echo $row['uploadDate'] . " ";
                         echo $row['location'];

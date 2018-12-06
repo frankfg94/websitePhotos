@@ -46,7 +46,6 @@ function fadeInPage() {
     </header>
     <section class="container">
         <h1 id="mainTitle">Pictures in our database</h1>
-        <a href="Web/HTML/home.php">Nouvelle Page</a>;
 
     <?php
 
@@ -64,7 +63,7 @@ function fadeInPage() {
                  <img  draggable="false"   ondragstart="return false"  class="icon" src="<?php echo $resultUser['profileImage'];?>">
                  </div>
                  <div class="profile-info">
-                     <div class="name">François Gillioen</div>
+                     <div class="name"><?php echo $resultUser['name'];?></div>
                      <div class="location"><?php echo $row['location'] ?></div>
                  </div>
                  <div class="date"> { <?php echo $row['photoId'] ?> } </div>

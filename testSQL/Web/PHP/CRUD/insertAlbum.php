@@ -35,7 +35,6 @@ else
     {
         //fill the array with the variables
         $photoId[$i] = $_POST['add'][$i];
-        echo "photo id : $photoId[$i]";
 
         // Insert into the Database       
         $query = "INSERT INTO AlbumPost (photoId, AlbumId) VALUES ('$photoId[$i]', '$albumId')";
@@ -50,11 +49,7 @@ else
             echo "Photos added to Album ! ";
         }
     }
-    //header( 'location: ../../HTML/userPage.php');
-    for($i=0; $i < $numberOfPhotos; $i++)
-    {
-        echo "photo id : $photoId[$i]";
-    }
+    header( 'location: ../../HTML/userPage.php');
 }
 
 ?>
