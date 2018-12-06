@@ -1,6 +1,15 @@
 <?php
 //include("../PHP/Users/login.php");
 
+try
+{
+    session_start();
+}
+catch(Exception $e)
+{
+    echo "session already started";
+}
+
 //Initialize variables for Database
 $servername = "den1.mysql2.gear.host";
 $username = "photosprojet";

@@ -44,17 +44,14 @@ if(isset($_POST['save']))
         echo "Query ERROR .<br>";
         echo "'$photoPath', '$title', '$uploadDate', '$location',  '$userId'<br>";
         die(mysqli_error($conn));
-        exit();
     }
     else {
 
         echo "Post is now created ! ";
-        exit();
         // Redirect to index page
         header('location: ../../HTML/userPage.php');
         // Display notification
-        $_SESSION['msg'] ="Post created";
-        exit();
+        $_SESSION['cardCreate'] ="Post created";
     }
 
 }

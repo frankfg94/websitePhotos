@@ -1,3 +1,16 @@
+<?php
+include_once("C:/wamp/www/websitePhotos/testSQL/Web/PHP/connectToMySql.php");
+include("C:/wamp/www/websitePhotos/testSQL/Web/PHP/Users/login.php");
+$request="select * from Post";
+$result = $conn->query($request); // Popular posts
+
+
+$request2="SELECT * FROM Post ORDER BY photoId DESC LIMIT 5";
+$result2 = $conn->query($request2); // Recents posts
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +28,7 @@
 </head>
 <body>
         <?php include("Elements/header.php"); ?>
+
         <div id="home-main-div">
             <div  id="left-carousel">
             <h1 >Recent Posts</h1>
@@ -24,17 +38,33 @@
                         <input type="radio" name="slider" id="s3" checked>
                         <input type="radio" name="slider" id="s4">
                         <input type="radio" name="slider" id="s5">
+
+<?php $i=1 ?>
+       <?php while($row2 = $result2->fetch_assoc()) 
+                        {
+                          ?>  
+                          <label for="s<?php echo $i ;?>" style="background: url(<?php echo $row2['photoPath'];?>)" id="slide<?php echo $i ;?>"></label>
+                         
+                          <?php  $i++; }?>
                         <label for="s1" id="slide1"></label>
-                        <label for="s2" id="slide2"></label>
-                        <label for="s3" id="slide3"></label>
+                        <label for="s2"  id="slide2"></label>
+                        <label for="s3"  id="slide3"></label>
                         <label for="s4" id="slide4"></label>
-                        <label for="s5" id="slide5"></label>
+                        <label for="s5" id="slide5"></label>  
                       </section>
         </div>
               <div id="right-mosaic">
                   <h1 >Popular Posts</h1>
                   <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
                         <div class="grid-sizer"></div>
+                        <?php
+                        while($row = $result->fetch_assoc()) 
+                        {
+                            ?>
+                              <div class="grid-item">
+                          <img src="<?php echo $row['photoPath'] ?>" />
+                        </div>
+                        <?php }  ?>
                         <div class="grid-item">
                           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" />
                         </div>

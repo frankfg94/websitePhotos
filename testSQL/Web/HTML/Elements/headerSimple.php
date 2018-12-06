@@ -20,8 +20,12 @@
 			<a href="goodPlans.php"> <i class="fa fa-bomb" aria-hidden="true"></i><h3>Plans</h3></a>
 			<a href="Contact.php"> <i class="fa fa-envelope"  aria-hidden="true"> </i><h3>Feedback</h3></a>
 
-        	<a href="connection.php"> <i class="fa fa-power-off"  aria-hidden="true"> </i><h3>Disconnect</h3></a>
-		</header>
+	<?php if(isset($_SESSION['connected'])): ?>
+
+<a href="connection.php"> <i class="fa fa-power-off"  aria-hidden="true"> </i><h3>Disconnect</h3></a>
+<?php else: ?>
+<a href="connection.php"> <i class="fa fa-plug"  aria-hidden="true"> </i><h3>Connection</h3></a>
+<?php endif ?>		</header>
 
 	</body>
 </html>

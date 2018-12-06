@@ -1,3 +1,4 @@
+<?php include_once("../PHP/CRUD/createFeedback.php"); ?>
 <?php include("Elements/header.php"); ?>
 <!DOCTYPE html>
 <!--This is a test for git-->
@@ -16,13 +17,13 @@
     </head>
 	
 	<body>
-	<?php include_once("../PHP/CRUD/createFeedback.php"); ?>
 	<?php if(isset($_SESSION['mailSent'])): ?>
         <div class="msg">
             <?php
-            echo $_SESSION['mailSent'];
+			echo $_SESSION['mailSent'];
+			unset($_SESSION['mailSent']);
 		?>
-        </div>
+        </div>	
         <?php endif ?>
 	<form class="form" method="POST" action="../PHP/CRUD/createFeedback.php">
 			<h1 class="animated fadeInLeft faster">Send us your feedback</h1>

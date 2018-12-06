@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
 
 
 //Initialize variables for Database
@@ -61,7 +64,7 @@ else
 
 
 */
-
+if(isset($_SESSION['connected'] ))
 $_SESSION['msgDisconnect'] = "You are now disconnected";
 
 
@@ -101,6 +104,7 @@ if(isset($_POST['save']))
                 echo "session started";
 
                 // Display notification
+                if(isset( $_SESSION['connected']))
                 $_SESSION['msg'] ="Success! You are now connected as $name";
                 $_SESSION['connected'] = "Connected as $name !";
                 $_SESSION['name'] = "$name";
@@ -111,13 +115,14 @@ if(isset($_POST['save']))
 
                 echo  $_SESSION['msg'];
                 echo $_SESSION['connected'];
+                header('location: ../../HTML/userPage.php');
             }
             else
             {
                 echo "login failed";
                 echo "destroying session";
                 $_SESSION['msgErr'] ="Error, incorrect user or password";
-                
+                header('location: ../../HTML/connection.php');
             }
         }
         else
@@ -125,10 +130,10 @@ if(isset($_POST['save']))
             echo "destroying session";
             echo "Nothing Found";
             $_SESSION['msgErr'] ="Error, incorrect user or password";
-
+            header('location: ../../HTML/connection.php');
         }
         // Redirect to index page
-       header('location: ../../HTML/UserPage.php');
+
     }
     echo "FIN";
 

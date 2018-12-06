@@ -110,8 +110,27 @@
     <body>  
         <!-- The Navigation bar -->
         
+    		<?php if(isset($_SESSION['connected'])): ?>
+
+		        <div class="msg">
+            <?php
+            echo $_SESSION['connected'];
+            ?>
+		</div>
+    <?php endif ?>
+
+        		<?php if(isset($_SESSION['cardCreate'])): ?>
+
+<div class="msg">
+<?php
+echo $_SESSION['cardCreate'];
+unset($_SESSION['cardCreate']);
+?>
+</div>
+<?php endif ?>
 
 
+  
 
     <h1 class="profile-intro-title">Welcome to your profile</h1>
     
@@ -121,17 +140,19 @@
         <div class="card-profile-navbar"> 
             <div >
               <div >
-                <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="<?php echo $_SESSION['profileImage']?>">
+                <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="<?php if(isset($_SESSION['connected'])): echo $_SESSION['profileImage']; else: echo "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png";endif ?>">
                 <img height="130px" width="100%" src="<?php echo $_SESSION['profileImageBg']?>"></img>
                 </div>
               
-                <h3>	<?php if(isset($_SESSION['name'])): ?>
+                <h3>	
         <div >
             <?php
+            if(isset($_SESSION['connected'])): 
             echo $_SESSION['name'];
-		?>
-        </div>
-		<?php endif ?></h3> 
+		        else : echo "No User";  ?>
+    <?php endif ?>
+  </div>
+  </h3> 
             </div>
         </div>
 
@@ -272,6 +293,7 @@
                         </div>
                         <li><span>3.</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet. Curabitur aliquet orci sit amet est posuere consectetur.  </p></li>
                       </ol> 
+                      <
                     </div>
                     <div  id="bottom" class="card-create-area">
                                  </div>
@@ -487,7 +509,6 @@
   function examineSize(url){   
     var img = new Image();
     img.addEventListener("load", function(){
-        alert( this.naturalWidth +' '+ this.naturalHeight );
         if(img.naturalWidth >= 2 * img.naturalHeight)
         {
           alert("Warning : High level of Image Distortion, choose an image with a better height:width ratio to have more visual fidelity");

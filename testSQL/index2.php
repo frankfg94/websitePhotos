@@ -1,5 +1,6 @@
 <?php
 include_once('Web/PHP/connectToMySql.php');
+include('Web/PHP/Users/login.php');
 $request="select * from Post";
 $result = $conn->query($request);
 ?>
@@ -9,6 +10,7 @@ $result = $conn->query($request);
 <head>
     <title>Picture Post Testing</title>
     <link rel="stylesheet" type="text/css" href="Web/CSS/main.css"/>
+    <link rel="stylesheet" type="text/css" href="Web/CSS/notifs.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     <link rel="stylesheet" type="text/css" href="Web/CSS/imageFilters.css"/>
     <script>
@@ -66,7 +68,15 @@ function fadeInPage() {
     <section class="container">
         <h1 id="mainTitle">Pictures in our database</h1>
         <a href="Web/HTML/home.php">Nouvelle Page</a>;
+        <?php if(isset($_SESSION['edit'])): ?>
 
+<div class="msg">
+<?php
+echo $_SESSION['edit'];
+unset($_SESSION['edit']);
+?>
+</div>
+<?php endif ?>
     <?php
       while($row = $result->fetch_assoc()) 
      {

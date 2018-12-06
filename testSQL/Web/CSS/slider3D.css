@@ -72,11 +72,11 @@
     transform: translate3d(30%,0,-200px);
   }
   
-  #slide1 { background: url(https://media-cdn.tripadvisor.com/media/photo-s/01/3d/7b/f0/leipzig-zoo-zoologischer.jpg) }
+  #slide1 {background: url(https://media-cdn.tripadvisor.com/media/photo-s/01/3d/7b/f0/leipzig-zoo-zoologischer.jpg) }
   #slide2 { background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLb5mOUtzV0ObqBVuAURSvPAsC27148aFdKGc6e6Z_Z78vmMWf) }
   #slide3 { background:url(http://natures-du-monde.com/wp/wp-content/uploads/2016/04/13062928_10154140702877241_5064951308199830226_o-1024x683.jpg) }
   #slide4 { background: url(https://media-cdn.tripadvisor.com/media/photo-s/12/f8/66/ce/paris-in-one-day-sightseeing.jpg) }
-  #slide5 { background:url(https://icdn1.digitaltrends.com/image/the-division-2-review-10-640x640.jpg) }
+  #slide5 {   background:url(https://icdn1.digitaltrends.com/image/the-division-2-review-10-640x640.jpg) }
 
   #left-carousel{
      width: 50%;
@@ -87,6 +87,7 @@
     width: 50%;
     float: right;
  }
+ 
 
  @media only screen and (max-width: 600px) {
   #left-carousel{

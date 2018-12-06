@@ -113,6 +113,10 @@ input[type="checkbox"] {
 color: #03a9f4;
 }
 
+#eye{
+    color:white;
+}
+
 hr{
     display: block;
     height: 1px;

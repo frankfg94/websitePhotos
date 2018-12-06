@@ -49,14 +49,19 @@ function fadeInPage() {
         <a href="Web/HTML/home.php">Nouvelle Page</a>;
 
     <?php
+
       while($row = $result->fetch_assoc()) 
      {
-         ?>
-         
+        $userId = $row['userId'];
+        $requestUser="SELECT * FROM User WHERE userId=$userId"; // User Associated for each different Post
+        $result2 = $conn->query($requestUser);
+        $resultUser = $result2->fetch_assoc();
+
+        ?>
          <div class="card not-bootstrap">        
              <div class="card-header">
                  <div class="profile-image">
-                 <img  draggable="false"   ondragstart="return false"  class="icon" src="https://www.usinenouvelle.com/mediatheque/8/9/9/000205998_image_896x598/tank-furtif-polonais-pl-01.jpg">
+                 <img  draggable="false"   ondragstart="return false"  class="icon" src="<?php echo $resultUser['profileImage'];?>">
                  </div>
                  <div class="profile-info">
                      <div class="name">François Gillioen</div>

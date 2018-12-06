@@ -35,11 +35,13 @@
 <?php include('../PHP/CRUD/createUser.php'); ?>
 
 
-<?php if(isset($_SESSION['connected'])): ?>
+<?php if(isset($_SESSION['msgDisconnect'])): ?>
     <div class="msg">
         <?php
         echo $_SESSION['msgDisconnect'];
+        unset($_SESSION['msgDisconnect']);
         unset($_SESSION['connected']);
+        unset($_SESSION['name']);
         ?>
     </div>
    <?php endif ?>
@@ -48,6 +50,15 @@
         <?php
         echo $_SESSION['subscribed'];
         unset($_SESSION['subscribed']);
+        ?>
+    </div>
+   <?php endif ?>
+
+      <?php if(isset($_SESSION['msgErr']) && !isset($_SESSION['msgDisconnect'])): ?>
+    <div class="msgErr">
+        <?php
+        echo $_SESSION['msgErr'];
+        unset($_SESSION['msgErr']);
         ?>
     </div>
    <?php endif ?>
