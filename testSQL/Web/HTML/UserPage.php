@@ -20,91 +20,7 @@
         <link rel="stylesheet" href="../CSS/designList.css">
         <link rel="stylesheet" href="../CSS/imageFilters.css">
         <script src="../JS/geolocation.js"></script>
-        <script>
 
-
-
-    function SelectImage()
-    {
-        // Start the Select File Dialog
-        document.getElementById('file-input').click();
-  
-    }
-
-
-
-    function hideDivs()
-    {
-       var left = document.getElementById("left");
-       var right = document.getElementById("right");
-       var bottom = document.getElementById("bottom");
-       var album = document.getElementById("album2");
-       var footer = document.getElementById("footerAlbum");
-
-        left.style.display="none";
-        right.style.display="none";
-        bottom.style.display="none";
-        album.style.display="block";
-        footer.style.display="block";
-
-
-    }
-
-    function ChangeVisibilityPassword()
-    {
-        var input = document.getElementById("password");
-            if(input.type == "password")
-            {
-                input.type = "text";
-            }
-            else
-            {
-                input.type = "password";
-            }
-    }
-
-    function LoadImg()
-    {
-              // FileReader support
-     var files =  document.getElementById('file-input').files;
-    if (FileReader && files && files.length) {
-        var fr = new FileReader();
-        fr.onload = function () {
-            document.getElementById('img').src = fr.result;
-        }
-        fr.readAsDataURL(files[0]);
-    }
-    }
-
-
-
-    function ShowDeletablePostList()
-    {
-        document.getElementById('iframeDelPosts').style.display='block';
-    }
-
-    function ShowCardCreator()
-    {
-        document.getElementById('createCard').style.display='block';
-        document.getElementById('publish-btn').style.display='inline-block';
-    }
-
-    window.onload = function()
-    {
-        var album = document.getElementById("album2");
-        var footer = document.getElementById("footerAlbum");
-
-        album.style.display="none";
-        footer.style.display="none";
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"];
-  const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
-  "Sunday"];
-
-    const d = new Date();
-    document.getElementById("date").innerHTML = dayNames[d.getDay()]  + " " +d.getDate() +" "+monthNames[d.getMonth()];
-    }
-</script>
     </head>
     
     <body>  
@@ -187,14 +103,13 @@ unset($_SESSION['cardCreate']);
                     <h1 >My Albums</h1>
                     </a>
             <div id="collapse2" class="collapse">
-                <a  href="album.html" >
-                    <button  class="animated zoomIn faster editCard">Create</button>
-                </a>
+                    <button onclick="showAlbums()" class="animated zoomIn faster editCard">Create</button>
             <button  onclick="hideDivs()"  class="animated zoomIn fast editCard">Edit</button>
             <button   class="animated zoomIn  editCard">Delete / Edit</button>
         </div>
     </div>
 </div>
+<!--My Places-->
 <div class="butDiv-container">
     <div  class="butDiv">
             <a class="btn" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -207,6 +122,7 @@ unset($_SESSION['cardCreate']);
 </div>
 </div>
 <div class="right-side">
+<?php include("newAlbum.php"); ?>
 <div>
             <iframe id="iframeDelPosts" src="../PHP/postList.php"></iframe>
         </div>
@@ -501,7 +417,7 @@ unset($_SESSION['cardCreate']);
           <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js" integrity="sha256-ifihHN6L/pNU1ZQikrAb7CnyMBvisKG3SUAab0F3kVU=" crossorigin="anonymous"></script>
       
 </div>
-
+	<!--footer part-->
             <?php include("Elements/footer.html"); ?>
 <script>
 
@@ -610,6 +526,120 @@ unset($_SESSION['cardCreate']);
 </script>
 	</body>
 	
-	<!--footer part-->
+  <script>
+
+function SelectImage()
+{
+// Start the Select File Dialog
+    document.getElementById('file-input').click();
+
+}
+
+
+
+function hideDivs()
+{
+   var left = document.getElementById("left");
+   var right = document.getElementById("right");
+   var bottom = document.getElementById("bottom");
+   var album = document.getElementById("album2");
+   var footer = document.getElementById("footerAlbum");
+
+    left.style.display="none";
+    right.style.display="none";
+    bottom.style.display="none";
+    album.style.display="block";
+    footer.style.display="block";
+
+
+}
+
+function ChangeVisibilityPassword()
+{
+    var input = document.getElementById("password");
+        if(input.type == "password")
+        {
+            input.type = "text";
+        }
+        else
+        {
+            input.type = "password";
+        }
+}
+
+function LoadImg()
+{
+          // FileReader support
+ var files =  document.getElementById('file-input').files;
+if (FileReader && files && files.length) {
+    var fr = new FileReader();
+    fr.onload = function () {
+        document.getElementById('img').src = fr.result;
+    }
+    fr.readAsDataURL(files[0]);
+}
+}
+
+
+
+function ShowDeletablePostList()
+{
+  document.getElementById('iframeDelPosts').style.display='block';
+}
+
+function ShowCardCreator()
+{
+    document.getElementById('createCard').style.display='block';
+    document.getElementById('publish-btn').style.display='inline-block';
+
+    var left = document.getElementById("left");
+    var right = document.getElementById("right");
+    var bottom = document.getElementById("bottom");
+    var album = document.getElementById("album2");
+    var footer = document.getElementById("footerAlbum");
+    var albumDiv = document.getElementById("albumDiv");
+
+    left.style.display="block";
+    right.style.display="block";
+    bottom.style.display="block";
+    album.style.display="none";
+    footer.style.display="none";
+    albumDiv.style.display="none";
+}
+
+    function showAlbums()
+{
+    var left = document.getElementById("left");
+    var right = document.getElementById("right");
+    var bottom = document.getElementById("bottom");
+    var album = document.getElementById("album2");
+    var footer = document.getElementById("footerAlbum");
+    var albumDiv = document.getElementById("albumDiv");
+
+    left.style.display="none";
+    right.style.display="none";
+    bottom.style.display="none";
+    album.style.display="none";
+    footer.style.display="none";
+    albumDiv.style.display="block";
+}
+
+window.onload = function()
+{
+    var album = document.getElementById("album2");
+    var footer = document.getElementById("footerAlbum");
+  
+    album.style.display="none";
+    footer.style.display="none";
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+"July", "August", "September", "October", "November", "December"];
+const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+"Sunday"];
+
+const d = new Date();
+document.getElementById("date").innerHTML = dayNames[d.getDay()]  + " " +d.getDate() +" "+monthNames[d.getMonth()];
+}
+</script>
 
 	</html>
