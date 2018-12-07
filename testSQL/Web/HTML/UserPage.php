@@ -61,7 +61,7 @@ unset($_SESSION['cardCreate']);
             <div >
               <div >
                 <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="<?php if(isset($_SESSION['connected'])): echo $_SESSION['profileImage']; else: echo "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png";endif ?>">
-                <img height="130px" width="100%" src="<?php echo $_SESSION['profileImageBg']?>"></img>
+                <img height="130px" width="100%" src="<?php  if(isset($_SESSION['connected'])): echo $_SESSION['profileImageBg']; endif ?>"></img>
                 </div>
               
                 <div>
@@ -317,6 +317,7 @@ unset($_SESSION['cardCreate']);
         <form method="post" action="../PHP/CRUD/insertAlbum.php">
           <fieldset>
             <legend>Choose the pictures you want to add to your album.</legend>
+            
               <?php
               while($row = $result->fetch_assoc()) 
               {
@@ -609,6 +610,7 @@ unset($_SESSION['cardCreate']);
 
       document.getElementById('createCard').style.display='none';
       document.getElementById('publish-btn').style.display='none';
+
     }
 
     //Called at the loading of the page

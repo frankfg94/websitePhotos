@@ -40,7 +40,7 @@ if(isset($_POST['userEdited']))
         die($conn->connect_error);  
     }
     else {
-        header( 'location: ../../HTML/userPage.php');
+            header( 'location: ../../HTML/userPage.php');
 
     }
 }
