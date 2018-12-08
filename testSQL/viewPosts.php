@@ -29,6 +29,7 @@ function fadeInPage() {
     }
 
 
+
         </script>
 </head>
 <body >
@@ -85,7 +86,7 @@ function fadeInPage() {
                      <p><span class="username">François</span>Test de commentaire</p>
                      <p><span class="username">user1234</span>Sympa!</p>
                  </div>
-                <a href="#" onclick="DownloadImg(event,this)" class="dlBtn" download>Download image</a>
+                <a href="#" onclick="DownloadImg(event,this)" class="dlBtn" download>Go Fullscreen</a>
              </div>
          </div>
     <?php

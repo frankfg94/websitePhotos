@@ -1,6 +1,7 @@
 <?php include("../PHP/Users/login.php");?>
 
 <?php include_once("Elements/headerSimple.php"); ?>
+<?php include("../PHP/CRUD/editUser.php");?>
 
 <!DOCTYPE html>
 <html lang ="en">
@@ -60,7 +61,7 @@ unset($_SESSION['cardCreate']);
             <div >
               <div >
                 <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="<?php if(isset($_SESSION['connected'])): echo $_SESSION['profileImage']; else: echo "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png";endif ?>">
-                <img height="130px" width="100%" src="<?php echo $_SESSION['profileImageBg']?>"></img>
+                <img height="130px" width="100%" src="<?php  if(isset($_SESSION['connected'])): echo $_SESSION['profileImageBg']; endif ?>"></img>
                 </div>
               
                 <div>
@@ -80,10 +81,12 @@ unset($_SESSION['cardCreate']);
       <div class="butDiv-container" data-parent="#accordionExample"> 
         <div class="butDiv">
           <a class="btn" data-toggle="collapse" href="#collapse-account" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <h1>Account Name</h1>
+            <h1>Account</h1>
           </a>
           <div id="collapse-account" class="collapse">
-              <button style="width:auto;">Settings</button>
+              <?php if(isset($_SESSION['connected'])): ?>
+              <button onclick="showSettings()" style="width:auto;">Settings</button>
+              <?php endif ?>
           </div>
         </div>
       </div>
@@ -137,7 +140,37 @@ unset($_SESSION['cardCreate']);
       </div>
   </div>
 
-    <div class="right-side">
+  
+    <div id="settings">
+      <div style="padding-left: 400px;" >
+        <form action="../PHP/CRUD/editUser.php" method="POST">
+          <h3>Settings</h3>
+          <input name="usernameEditPhotos" type="hidden" value="<?php if(isset($_SESSION['connected'])): echo $_SESSION['name']; endif ?>">
+          <div >
+            <h3>
+                Change your picture
+            </h3>
+            <img  id="b" class="icon-big" style="float:left" alt="Profile Image To Edit" src="<?php echo $_SESSION['profileImage'] ?>"/>
+            <input name="profileImage" onchange="PreviewNewImgCustom('b','profileImage')" id="profileImage" type="text">
+          </div>
+          <hr style="visibility:hidden">
+          <hr style="visibility:hidden">
+          <hr style="visibility:hidden">
+          <div>
+            <h3>
+                Change your background Image
+            </h3>
+            <input name="profileImageBg" onchange="PreviewNewImgCustom('profileImgBgEdit','inputImgBgEdit')"   id="inputImgBgEdit" width="30%" type="text">
+              <img   id="profileImgBgEdit" style="float:left" alt="Profile background To Edit" src="<?php echo $_SESSION['profileImageBg'] ?>"/>
+          </div>
+          <button type="submit" name="userEdited" class="btn btn-success">Save</button>
+        </form>
+      </div>
+    </div>
+      <div class="right-side">
+          <?php  if(!isset($_SESSION['connected'])): ?>
+          <h4 style="text-align:left" id="welcome-guest">You can browse the posts or albums, an account is required to create and delete them.</h4>
+          <?php endif ?>
       <div>
           <iframe id="iframeDelPosts" src="../PHP/postList.php"></iframe>
       </div>
@@ -203,11 +236,7 @@ unset($_SESSION['cardCreate']);
             </div>
           </div>
         </form>
-            <?php  if(!isset($_SESSION['connected'])): ?>
-            <div class="right-side">
-           <h4 id="welcome-guest">You can browse the posts or albums, an account is required to create and delete them.</h4>
-           </div>
-  <?php endif ?>
+
         <div id="left" class="card-area-left">
                 <div class="big-indexes">
                   
@@ -289,6 +318,7 @@ unset($_SESSION['cardCreate']);
         <form method="post" action="../PHP/CRUD/insertAlbum.php">
           <fieldset>
             <legend>Choose the pictures you want to add to your album.</legend>
+            
               <?php
               while($row = $result->fetch_assoc()) 
               {
@@ -360,6 +390,13 @@ unset($_SESSION['cardCreate']);
         SyncButtonsWithImg(img.src);
         examineSize(img.src);
         
+    }
+
+      function PreviewNewImgCustom(imgElementId,inputElementId)
+    {
+        var img = document.getElementById(imgElementId);
+        var input = document.getElementById(inputElementId);
+        img.src = input.value;
     }
 
     // This methods display the big card image on each image filter effect button
@@ -480,6 +517,8 @@ unset($_SESSION['cardCreate']);
     //Display the card divs and hide others
     function ShowCardCreator()
     {
+    
+
       var left = document.getElementById("left");
       var right = document.getElementById("right");
       var filters = document.getElementById("div-filters");
@@ -496,12 +535,42 @@ unset($_SESSION['cardCreate']);
       step1.style.display="none";
       step2.style.display="none";
 
+
       document.getElementById('publish-btn').style.display='inline-block';
+      var settings = document.getElementById("settings");
+      settings.style.display="none";
     }
 
     //Display the albums divs and hide others
     function showAlbums()
     {
+
+      var left = document.getElementById("left");
+      var right = document.getElementById("right");
+      var filters = document.getElementById("div-filters");
+    
+      var step1 = document.getElementById("step1");
+      var step2 = document.getElementById("step2");
+      
+
+      left.style.display="none";
+      right.style.display="none";
+      filters.style.display="none";
+
+      step1.style.display="block";
+      step2.style.display="none";
+
+      document.getElementById('createCard').style.display='none';
+      document.getElementById('publish-btn').style.display='none';
+      var settings = document.getElementById("settings");
+      settings.style.display="none";
+
+    }
+
+     function showSettings()
+    {
+      var settings = document.getElementById("settings");
+      settings.style.display="block";
       var left = document.getElementById("left");
       var right = document.getElementById("right");
       var filters = document.getElementById("div-filters");
@@ -513,7 +582,7 @@ unset($_SESSION['cardCreate']);
       right.style.display="none";
       filters.style.display="none";
 
-      step1.style.display="block";
+      step1.style.display="none";
       step2.style.display="none";
 
       document.getElementById('createCard').style.display='none';
@@ -539,6 +608,7 @@ unset($_SESSION['cardCreate']);
 
       document.getElementById('createCard').style.display='none';
       document.getElementById('publish-btn').style.display='none';
+
     }
 
     //Called at the loading of the page
@@ -567,6 +637,9 @@ unset($_SESSION['cardCreate']);
 
       const d = new Date();
       document.getElementById("date").innerHTML = dayNames[d.getDay()]  + " " +d.getDate() +" "+monthNames[d.getMonth()];
+
+            var settings = document.getElementById("settings");
+            settings.style.display="none";
     }
 
     </script>

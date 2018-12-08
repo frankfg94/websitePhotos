@@ -40,7 +40,7 @@ if (sizeof($results) >= 0)
 		<!-- The link to the css file -->
 		<!-- The title of the page -->
 		<title>My Albums</title>
-		<link rel="stylesheet" href="../CSS/main.css">
+		<link rel="stylesheet" href="../CSS/main.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     </head>
     
@@ -53,6 +53,10 @@ if (sizeof($results) >= 0)
         <br />
         <h1><?php echo $row['album.title']; ?></h1>
         <div >
+        <br />
+        <br />
+        <br />
+        <h2 style="padding-left:10%" >View your Albums</h2>
             <ul class="undottedLi">
             <?php
                 while($row = $result->fetch_assoc()) 
@@ -69,6 +73,7 @@ if (sizeof($results) >= 0)
                             </div>
                        </div>
                     </li>
+                    <hr>
                 <?php
                 }
                 ?> 

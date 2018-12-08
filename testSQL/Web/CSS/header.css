@@ -29,6 +29,11 @@
     z-index: 20; 
   }
 
+  header a:hover
+  {
+    text-decoration: none;
+  }
+
   /*Ici on définit on couleur différente pour chaque bouton quand la souris passe par dessus/ survole le bouton*/
   header a:hover .fa-heart-o
   {
