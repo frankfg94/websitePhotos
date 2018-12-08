@@ -59,7 +59,7 @@ function fadeInPage() {
         </script>
    <header>
        
-            <a href="index.php">    <i class="fa fa-home" aria-hidden="true"></i><h3>Home</h3></a>
+            <a href="Web/HTML/home.php">    <i class="fa fa-home" aria-hidden="true"></i><h3>Home</h3></a>
             <a href="Web/HTML/search.php"> <i class="fa fa-search" aria-hidden="true"></i><h3>Search</h3></a>
             <a href="Web/HTML/UserPage.php"><i class="fa fa-user-o" aria-hidden="true"></i><h3>Profile</h3></a>
             <a href="Web/HTML/goodPlans.php"> <i class="fa fa-bomb" aria-hidden="true"></i><h3>Good Plans</h3></a>

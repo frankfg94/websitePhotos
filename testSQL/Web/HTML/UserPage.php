@@ -116,7 +116,7 @@ unset($_SESSION['cardCreate']);
           <?php if(isset($_SESSION['connected'])): ?>
             <button onclick="showAlbums()" class="animated zoomIn faster editCard">Create</button>
             <?php endif?>
-            <a href="viewAlbum.php"><button class="animated zoomIn fast editCard">View</button></a>
+            <a href="chooseAlbum.php"><button class="animated zoomIn fast editCard">View</button></a>
             <?php if(isset($_SESSION['connected'])): ?>
             <button class="animated zoomIn  editCard" onclick="step2()">Delete / Edit</button>
             <?php endif?>
@@ -285,6 +285,7 @@ unset($_SESSION['cardCreate']);
       </div>
 
       <div id="step2">
+      <p><strong>Design in progress !!!</strong></p>
         <form method="post" action="../PHP/CRUD/insertAlbum.php">
           <fieldset>
             <legend>Choose the pictures you want to add to your album.</legend>
@@ -322,10 +323,7 @@ unset($_SESSION['cardCreate']);
                 </form>
                 </div>
               </div>
-            </div>
-      
-      
-         
+            </div> 
    
     </div>  
 
