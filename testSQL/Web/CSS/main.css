@@ -19,6 +19,11 @@ body
   background:#FAFAFA;
 }
 
+.img-medium-resized
+{
+  height: 200px;
+  width: 200px;
+}
 
 header a .fa 
 {

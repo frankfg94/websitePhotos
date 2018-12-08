@@ -1,4 +1,10 @@
-<?php include("Elements/header.php"); ?>
+<?php include("Elements/header.php");
+include_once("../PHP/connectToMySql.php");
+$request="select * from Post";
+$result = $conn->query($request); //Getting all posts
+$result = $conn->query($request); //Getting all posts
+?>
+
 <!DOCTYPE html>
 <html lang ="en">
     <head>
@@ -8,8 +14,8 @@
 		<!-- The link to the css file -->
         <link rel="stylesheet" href="../CSS/main.css">
         <link rel="stylesheet" href="../CSS/goodPlans.css">
-        <!--link rel="stylesheet" href="../CSS/slider3D.css" -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+        <!--link rel="stylesheet" href="../CSS/slider3D.css" -->
     </head>
 
     <body>
