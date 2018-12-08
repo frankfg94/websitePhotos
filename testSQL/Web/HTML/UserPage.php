@@ -24,6 +24,7 @@
   </head>
     
     <body>  
+      
         <!-- The Navigation bar -->
         
     		<?php if(isset($_SESSION['connected'])): ?>
@@ -48,7 +49,7 @@ unset($_SESSION['cardCreate']);
 
   
   <?php if(isset($_SESSION['connected'])): ?>
-    <h1 class="profile-intro-title">Welcome to your profile</h1>
+    <h1 id="main-title" class="profile-intro-title">Welcome to your profile</h1>
     <?php else : ?>
     <h1 class="profile-intro-title">Welcome Guest !</h1>
 
@@ -318,8 +319,12 @@ unset($_SESSION['cardCreate']);
         $request="SELECT title, description, albumId
         FROM Album;";
         $resultAlbum = $conn->query($request);
+
+
+        
+
         ?>
-        <p><strong>Select an album </strong></p>
+        <p><strong>Select an album ( <?php echo mysqli_num_rows($resultAlbum) ?> available ) </strong></p>
         <div>
 
           <form method="post" action="chooseAlbumE.php">
@@ -333,7 +338,7 @@ unset($_SESSION['cardCreate']);
               }
               ?> 
             </select>
-            <button type="submit" value="<?php echo $row['albumId'] ?>" >Choose</button>
+            <button type="submit" value="<?php echo $row['albumId'] ?>" >Edit</button>
           </form>
         </div>
         <!--
@@ -632,6 +637,7 @@ unset($_SESSION['cardCreate']);
 
       document.getElementById('createCard').style.display='none';
       document.getElementById('publish-btn').style.display='none';
+      window.scrollTo(0, 0); // Go to top of the page
 
     }
 

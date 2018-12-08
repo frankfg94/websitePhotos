@@ -1,20 +1,4 @@
 <?php
-$servername = "den1.mysql2.gear.host";
-$username = "photosprojet";
-$password = "123456!";
-$dbname = "photosprojet";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-$albumId = "";
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-else
-{
-    echo "connected to DB";
-}
 
 // Check button click
 if(isset($_POST['num']))
@@ -26,15 +10,16 @@ if(isset($_POST['num']))
 else 
 {
     echo "albumId not set";
-    $albumId = 0;
+    $albumId=0;
 }
 
-$query="SELECT Album.title AS albTitle, Album.description, photoPath, userId, Post.title FROM Post JOIN albumpost ON Post.photoId=albumpost.photoId JOIN Album ON Album.albumId=$albumId AND $albumId=albumPost.albumId";
+$query="SELECT Album.title AS albTitle, Album.description, photoPath, userId, Post.title FROM Post JOIN albumpost ON Post.photoId=albumpost.photoId JOIN Album ON Album.albumId=$albumId";
 echo $query;
 $results = mysqli_query($conn, $query);
  $album=$results->fetch_assoc();
 ?>
 
+?>
 <!DOCTYPE html>
 <html lang ="en">
     <head>
@@ -48,7 +33,6 @@ $results = mysqli_query($conn, $query);
     
     <body>
 
-    <?php include("Elements/header.php"); ?>
     <br />
         <br />
         <br />
@@ -94,7 +78,5 @@ $results = mysqli_query($conn, $query);
                 ?> 
         </div>
     <!--footer part-->
-    <button ><a href="chooseAlbum.php" >Go Back</a></button>
-    <?php include("Elements/footer.html"); ?>
     </body>
 </html>

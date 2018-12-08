@@ -7,6 +7,7 @@ $username = "photosprojet";
 $password = "123456!";
 $dbname = "photosprojet";
 
+$albumId="";
 // Check button click
 if(isset($_POST['albumId']))
 {
@@ -30,7 +31,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully (insertAlbum.php)". "<br>";
 
-$results = mysqli_query($conn, "SELECT * FROM AlbumPost");
+$results = mysqli_query($conn, "SELECT * FROM albumpost");
 
 //checks is the array of checkboxes is empty
 if(empty($_POST['add']))
@@ -47,7 +48,7 @@ else
         $photoId[$i] = $_POST['add'][$i];
 
         // Insert into the Database       
-        $query = "INSERT INTO AlbumPost (photoId, AlbumId) VALUES ('$photoId[$i]', '$albumId')";
+        $query = "INSERT INTO albumpost (photoId, albumId) VALUES ('$photoId[$i]', '$albumId')";
     
         if(!    $result = mysqli_query($conn, $query))
         {

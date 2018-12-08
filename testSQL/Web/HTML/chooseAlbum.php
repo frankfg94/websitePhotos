@@ -27,7 +27,7 @@ $result = $conn->query($request);
             <h1>My Albums</h1>
             <br />
             <form method="post" action="viewAlbum.php">
-                <select name="num">
+                <select  name="num">
                     <?php
                     while($row = $result->fetch_assoc()) 
                     {
@@ -42,8 +42,9 @@ $result = $conn->query($request);
         </div>
 
         <p><strong>Design in progress !!!</strong></p>
-
+<?php include('viewAlbumPack.php'); ?>  
     <!--footer part-->
+    <button ><a href="UserPage.php" >Go Back</a></button>
     <?php include("Elements/footer.html"); ?>
     </body>
 </html>

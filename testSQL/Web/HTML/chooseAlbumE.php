@@ -78,6 +78,7 @@ $resultPost = $conn->query($request2);
                   }
                   ?>
                   </fieldset>
+                  <input type="text" name="albumId" value="<?php echo $albumId; ?>">
                   <button type="submit" value="add" name="addPhotos">Add to Album</button>
                 </form>
 
