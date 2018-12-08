@@ -27,7 +27,7 @@ $result = $conn->query($request);
             <h1>My Albums</h1>
             <br />
             <form method="post" action="viewAlbum.php">
-                <select name="choix">
+                <select name="num">
                     <?php
                     while($row = $result->fetch_assoc()) 
                     {
@@ -37,7 +37,7 @@ $result = $conn->query($request);
                     }
                     ?> 
                 </select>
-                <button type="submit" value="<?php echo $row['albumId'] ?>" name="albumId">Choose</button>
+                <button type="submit" value="<?php echo $row['albumId'] ?>" >Choose</button>
             </form>
         </div>
 

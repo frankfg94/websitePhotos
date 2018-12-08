@@ -7,8 +7,18 @@ $username = "photosprojet";
 $password = "123456!";
 $dbname = "photosprojet";
 
+// Check button click
+if(isset($_POST['albumId']))
+{
+    //put the variables here
+    $albumId = $_POST['albumId'];   
+}
+else 
+{
+    echo "albumId not set";
+}
+
 //Initialize variables for Database AlbumPost Table
-$albumId = "1";    //at the moment it's only one album but with GET we can access to the album we want
 $photoId = array();
 
 // Create connection

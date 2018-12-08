@@ -314,7 +314,29 @@ unset($_SESSION['cardCreate']);
       </div>
 
       <div id="step2">
-      <p><strong>Design in progress !!!</strong></p>
+        <?php
+        $request="SELECT title, description, albumId
+        FROM Album;";
+        $resultAlbum = $conn->query($request);
+        ?>
+        <p><strong>Select an album </strong></p>
+        <div>
+
+          <form method="post" action="chooseAlbumE.php">
+            <select name="num">
+              <?php
+              while($row = $resultAlbum->fetch_assoc()) 
+              {
+              ?>
+                  <option value="<?php echo $row['albumId'] ?>"><?php echo $row['title']; ?></option>
+              <?php
+              }
+              ?> 
+            </select>
+            <button type="submit" value="<?php echo $row['albumId'] ?>" >Choose</button>
+          </form>
+        </div>
+        <!--
         <form method="post" action="../PHP/CRUD/insertAlbum.php">
           <fieldset>
             <legend>Choose the pictures you want to add to your album.</legend>
@@ -350,12 +372,14 @@ unset($_SESSION['cardCreate']);
                 ?>
                 </fieldset>
                 <button type="submit" value="add" name="addPhotos">Add to Album</button>
-                </form>
-                </div>
-              </div>
-            </div> 
-   
+              </form>
+
+              -->
+            </div>
+        </div>
+      </div> 
     </div>  
+  
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

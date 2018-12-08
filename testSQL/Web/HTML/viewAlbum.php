@@ -6,30 +6,32 @@ $dbname = "photosprojet";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-
+$albumId = "";
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-?>
-<p><strong>Work in progress</strong></p>
-<?php
+else
+{
+    echo "connected to DB";
+}
+
 // Check button click
-if(isset($_POST['albumId']))
+if(isset($_POST['num']))
 {
     //put the variables here
-    $albumId = $_POST['albumId'];   
+    $albumId = $_POST['num'];  
+    echo "Album ID is" . $albumId; 
 }
-
-echo "$albumId";
-
-$query="SELECT Album.title, Album.description, photoPath, userId, Post.title FROM Post JOIN albumpost ON Post.photoId=albumpost.photoId JOIN Album ON Album.albumId='$albumId';";
-$results = msqli_query($conn, $query);
-
-if (sizeof($results) >= 0)
+else 
 {
-    echo "empty";
+    echo "albumId not set";
 }
+
+$query="SELECT Album.title AS albTitle, Album.description, photoPath, userId, Post.title FROM Post JOIN albumpost ON Post.photoId=albumpost.photoId JOIN Album ON Album.albumId=$albumId";
+echo $query;
+$results = mysqli_query($conn, $query);
+ $album=$results->fetch_assoc();
 ?>
 
 
@@ -51,17 +53,18 @@ if (sizeof($results) >= 0)
         <br />
         <br />
         <br />
-        <h1><?php echo $row['album.title']; ?></h1>
         <div >
         <br />
         <br />
         <br />
-        <h2 style="padding-left:10%" >View your Albums</h2>
+        <h1><?php echo $album['albTitle']; ?> </h1>
             <ul class="undottedLi">
             <?php
-                while($row = $result->fetch_assoc()) 
+                while($row = $results->fetch_assoc()) 
                 {
+                    
                 ?>
+                
                    <li class="undottedLi" >
                        <div class="butDiv">
                             <div>
