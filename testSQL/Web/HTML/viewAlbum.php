@@ -1,10 +1,37 @@
 <?php
-include_once('../PHP/connectToMySql.php');
-$request="SELECT * FROM album ORDER BY albumId DESC";
-$result = $conn->query($request);
+$servername = "den1.mysql2.gear.host";
+$username = "photosprojet";
+$password = "123456!";
+$dbname = "photosprojet";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+?>
+<p><strong>Work in progress</strong></p>
+<?php
+// Check button click
+if(isset($_POST['albumId']))
+{
+    //put the variables here
+    $albumId = $_POST['albumId'];   
+}
+
+echo "$albumId";
+
+$query="SELECT Album.title, Album.description, photoPath, userId, Post.title FROM Post JOIN albumpost ON Post.photoId=albumpost.photoId JOIN Album ON Album.albumId='$albumId';";
+$results = msqli_query($conn, $query);
+
+if (sizeof($results) >= 0)
+{
+    echo "empty";
+}
 ?>
 
-<?php include_once("Elements/headerSimple.php"); ?>
 
 <!DOCTYPE html>
 <html lang ="en">
@@ -18,30 +45,31 @@ $result = $conn->query($request);
     </head>
     
     <body>
+
+    <?php include("Elements/header.php"); ?>
+    <br />
+        <br />
+        <br />
+        <br />
+        <h1><?php echo $row['album.title']; ?></h1>
         <div >
         <br />
         <br />
         <br />
         <h2 style="padding-left:10%" >View your Albums</h2>
             <ul class="undottedLi">
-                <?php
-                $i = 1;
+            <?php
                 while($row = $result->fetch_assoc()) 
-               {
-                   echo "Album N° " ;
-                   echo $i++;
+                {
                 ?>
                    <li class="undottedLi" >
                        <div class="butDiv">
                             <div>
-                                <?php echo $row['title']; ?>
+                                <?php echo $row['title']; ?> 
                             </div>
                             <br>
-                            <div> 
-                                <!--img class="listImg" src="<-?php echo $row['photoPath'] ?>"/-->
-                                <?php 
-                                echo $row['description'];
-                                ?>
+                            <div>
+                                <img class="listImg" src="<?php echo $row['photoPath'] ?>">
                             </div>
                        </div>
                     </li>
@@ -49,7 +77,6 @@ $result = $conn->query($request);
                 <?php
                 }
                 ?> 
-            </ul>
         </div>
     <!--footer part-->
     <?php include("Elements/footer.html"); ?>
