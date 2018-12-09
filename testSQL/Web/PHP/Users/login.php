@@ -112,7 +112,6 @@ if(isset($_POST['save']))
                 $_SESSION['profileImageBg'] = $row['profileImageBg'];
                 $_SESSION['userId'] = $row['userId'];
 
-
                 echo  $_SESSION['msg'];
                 echo $_SESSION['connected'];
                 header('location: ../../HTML/userPage.php');

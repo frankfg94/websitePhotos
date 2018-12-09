@@ -2,6 +2,7 @@
 
 <?php include_once("Elements/headerSimple.php"); ?>
 <?php include("../PHP/CRUD/editUser.php");?>
+<?php include("../PHP/CRUD/server.php");?>
 
 <!DOCTYPE html>
 <html lang ="en">
@@ -46,7 +47,14 @@ unset($_SESSION['cardCreate']);
 </div>
 <?php endif ?>
 
-
+        		<?php if(isset($_SESSION['msgAlb'])): ?>
+<div class="msg">
+<?php
+echo $_SESSION['msgAlb'];
+unset($_SESSION['msgAlb']);
+?>
+</div>
+<?php endif ?>
   
   <?php if(isset($_SESSION['connected'])): ?>
     <h1 id="main-title" class="profile-intro-title">Welcome to your profile</h1>
@@ -61,8 +69,18 @@ unset($_SESSION['cardCreate']);
         <div class="card-profile-navbar"> 
             <div >
               <div >
-                <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="<?php if(isset($_SESSION['connected'])): echo $_SESSION['profileImage']; else: echo "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png";endif ?>">
-                <img height="130px" width="100%" src="<?php  if(isset($_SESSION['connected'])): echo $_SESSION['profileImageBg']; endif ?>"></img>
+                <img alt="Profile Image" draggable="false" ondragstart="return false"  class="icon-center-div" src="<?php
+                 if(isset($_SESSION['connected']) && $_SESSION['profileImage'] != ""):
+                  echo $_SESSION['profileImage']; 
+                  else:
+                   echo "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png";
+                   endif ?>">
+                <img height="130px" width="100%" src="<?php 
+                 if(isset($_SESSION['connected']) && $_SESSION['profileImageBg'] != ""):
+                  echo $_SESSION['profileImageBg'];
+                   else : 
+                   echo "https://www.bhphotovideo.com/images/images500x500/Savage_56_1253_Widetone_Seamless_Background_Paper_486218.jpg"; 
+                   endif  ?>"></img>
                 </div>
               
                 <div>
@@ -165,6 +183,10 @@ unset($_SESSION['cardCreate']);
               <img   id="profileImgBgEdit" style="float:left" alt="Profile background To Edit" src="<?php echo $_SESSION['profileImageBg'] ?>"/>
           </div>
           <button type="submit" name="userEdited" class="btn btn-success">Save</button>
+          <br>
+          <br>
+          <input name="user-id-remove" type="hidden" value="<?php echo $_SESSION['userId'];?>">
+          <button type="submit" name="userDeleted" class="btn btn-danger">Delete Your Account</button>
         </form>
       </div>
     </div>
@@ -253,7 +275,7 @@ unset($_SESSION['cardCreate']);
                       <button onclick="SetImageClass(this.value)" class="blur" value="4"></button><p>Blur</p>
                       <button onclick="SetImageClass(this.value)" class="invert" value="5"></button><p>Invert</p>
                       <button onclick="SetImageClass(this.value)" class="sepia" value="6"></button><p>Sepia</p>
-                      <button onclick="SetImageClass(this.value)" class="huerotate" value="7"></button><p>Huerotate</p>
+                      <button  onclick="SetImageClass(this.value)" class="huerotate" value="7"></button><p>Huerotate</p>
                       <button onclick="SetImageClass(this.value)" class="rss.opacity" value="8"></button><p>Opacity</p>
                     </div>
                   </ol> 
@@ -325,10 +347,11 @@ unset($_SESSION['cardCreate']);
 
         ?>
         <p><strong>Select an album ( <?php echo mysqli_num_rows($resultAlbum) ?> available ) </strong></p>
+        
         <div>
 
           <form method="post" action="chooseAlbumE.php">
-            <select name="num">
+            <select onchange="ChangeHrefValue()" id="album-selector" name="num">
               <?php
               while($row = $resultAlbum->fetch_assoc()) 
               {
@@ -338,7 +361,8 @@ unset($_SESSION['cardCreate']);
               }
               ?> 
             </select>
-            <button type="submit" value="<?php echo $row['albumId'] ?>" >Edit</button>
+            <button type="submit" >Edit</button>
+            <a id="anchor-delete" href="./Web/PHP/CRUD/server.php?delAlbum=UNDEFINED" ><button type="button" >Delete</button></a>
           </form>
         </div>
         <!--
@@ -617,6 +641,13 @@ unset($_SESSION['cardCreate']);
       document.getElementById('createCard').style.display='none';
       document.getElementById('publish-btn').style.display='none';
     }
+
+function ChangeHrefValue()
+{
+  
+  var anchor = document.getElementById('anchor-delete');
+  anchor.href =  "../PHP/CRUD/server.php?delAlbum=" + document.getElementById('album-selector').value;
+}
 
     //Display step 2 divs and hide step 1 divs
     function step2()

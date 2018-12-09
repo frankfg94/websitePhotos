@@ -22,11 +22,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully (server.php)". "<br>";
  
 $results = mysqli_query($conn, "SELECT * FROM Post");
 
-echo "All posts are selected";
 
 if(isset($_GET['del']))
 {
@@ -35,10 +33,26 @@ if(isset($_GET['del']))
     echo "photoId is $photoId";
     mysqli_query($conn, "DELETE FROM Post WHERE photoId=$photoId");
     
-    echo "redirecting...";
+   echo "redirecting...";
    header('location: ../../../index2.php');
     // Display notification
     $_SESSION['msg'] ="Post Deleted";
+}
+
+if(isset($_GET['delAlbum']))
+{
+    
+    echo "delete requested Album";
+    $albumId = $_GET['delAlbum'];
+    mysqli_query($conn, "DELETE FROM Album WHERE albumId=$albumId");
+    mysqli_query($conn, "DELETE FROM albumPost WHERE albumId=$albumId");
+    
+    echo "redirecting...";
+    header('location: ../../HTML/userPage.php');
+    
+
+    // Display notification
+    $_SESSION['msgAlb'] ="Album n° ". $albumId ." Deleted";
 }
 
 if(isset($_POST['update']))

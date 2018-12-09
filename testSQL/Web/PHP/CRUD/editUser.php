@@ -45,4 +45,32 @@ if(isset($_POST['userEdited']))
     }
 }
 
+
+
+if(isset($_POST['userDeleted']))
+{
+
+        //put the variables here 
+        $userId = $_POST['user-id-remove'];
+    
+    
+        // Insert Post into the Database
+        $query = "delete from User WHERE userId=$userId LIMIT 1";
+        $query2 = "delete from Post WHERE userId=$userId";
+    
+        echo $query;
+        if(!    $result = mysqli_query($conn, $query))
+        {
+            echo "Query ERROR .<br>";
+            die($conn->connect_error);  
+        }
+        else
+         {
+                //Remove all posts from the user
+                mysqli_query($conn, $query2);
+                header( 'location: ../../HTML/userPage.php');
+         }
+
+}
+
 ?>

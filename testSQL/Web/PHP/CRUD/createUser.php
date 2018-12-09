@@ -34,7 +34,7 @@ if(isset($_POST['save']))
     $password = $_POST['password'];
     $name = $_POST['name'];
     $status = "User";
-
+    
     echo "Variables initialized". "<br>";
 
     // Insert Post into the Database
